@@ -1,4 +1,0 @@
-___Selected browser is chrome
-
-Checking for win32 chromedriver:2.43 in cache
-Driver found in C:\Users\sepro\.wdm\chromedriver\2.43\win32/chromedriver.exe

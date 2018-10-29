@@ -1,3 +1,0 @@
-"Status","Name","Duration in ms","Description"
-"broken","tests.test_WelcomePage#test_Welcome_page","8731","This test opens BASE URL and checks that Welcome Page is shown to user. And it contains all
-                        required elements."
