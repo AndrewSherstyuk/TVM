@@ -1,7 +1,8 @@
 import allure
 from pages.SigninPage import *
 from pages.GuidePage import *
-from core.globals import*
+from core.globals import *
+from core.randomizer import *
 
 correct_email = "0000@0000.com"
 correct_password = "000000"
