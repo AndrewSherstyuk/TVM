@@ -1,0 +1,162 @@
+{
+  "uid" : "24f78dd442f456a8",
+  "name" : "Welcome Page showing",
+  "fullName" : "tests.test_WelcomePage#test_Welcome_page",
+  "historyId" : "f8633fa8a45a887fb4b314c18f8f4a1c",
+  "time" : {
+    "start" : 1540799885783,
+    "stop" : 1540799894514,
+    "duration" : 8731
+  },
+  "description" : "This test opens BASE URL and checks that Welcome Page is shown to user. And it contains all\n                        required elements.",
+  "descriptionHtml" : "<p>This test opens BASE URL and checks that Welcome Page is shown to user. And it contains all\nrequired elements.</p>\n",
+  "status" : "broken",
+  "statusMessage" : "selenium.common.exceptions.TimeoutException: Message: \n            failed while waiting 4 seconds\n            to assert not Clickable\n            for first_by('css selector', '#logoimg')\n\n            reason: ConditionMismatchException: condition did not match\n            screenshot: file://C:\\Users\\sepro\\.selene\\screenshots\\1540799885531\\screen_1540799885532.png",
+  "statusTrace" : "..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\wait.py:13: in wait_for\n    return condition.fn(entity)\n..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\conditions.py:36: in fn\n    raise ConditionMismatchException()  # todo: add more information to message\nE   selene.exceptions.ConditionMismatchException\n\nDuring handling of the above exception, another exception occurred:\n..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\elements.py:188: in _wait_with_screenshot\n    return wait_for(entity, condition, timeout, polling)\n..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\wait.py:35: in wait_for\n    reason=reason_string), screen, stacktrace)\nE   selenium.common.exceptions.TimeoutException: Message: \nE               failed while waiting 4 seconds\nE               to assert not Clickable\nE               for first_by('css selector', '#logoimg')\nE   \nE               reason: ConditionMismatchException: condition did not match\n\nDuring handling of the above exception, another exception occurred:\ntests\\test_WelcomePage.py:21: in test_Welcome_page\n    WelcomePage().logo.should(be.not_(be.clickable))\n..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\elements.py:306: in should\n    _wait_with_screenshot(self._webdriver, self, condition, timeout)\n..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\elements.py:193: in _wait_with_screenshot\n    raise TimeoutException(msg, e.screen, e.stacktrace)\nE   selenium.common.exceptions.TimeoutException: Message: \nE               failed while waiting 4 seconds\nE               to assert not Clickable\nE               for first_by('css selector', '#logoimg')\nE   \nE               reason: ConditionMismatchException: condition did not match\nE               screenshot: file://C:\\Users\\sepro\\.selene\\screenshots\\1540799885531\\screen_1540799885532.png",
+  "flaky" : true,
+  "beforeStages" : [ {
+    "name" : "driver_setup",
+    "time" : {
+      "start" : 1540799885780,
+      "stop" : 1540799885780,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "This test opens BASE URL and checks that Welcome Page is shown to user. And it contains all\n                        required elements.",
+    "status" : "broken",
+    "statusMessage" : "selenium.common.exceptions.TimeoutException: Message: \n            failed while waiting 4 seconds\n            to assert not Clickable\n            for first_by('css selector', '#logoimg')\n\n            reason: ConditionMismatchException: condition did not match\n            screenshot: file://C:\\Users\\sepro\\.selene\\screenshots\\1540799885531\\screen_1540799885532.png",
+    "statusTrace" : "..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\wait.py:13: in wait_for\n    return condition.fn(entity)\n..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\conditions.py:36: in fn\n    raise ConditionMismatchException()  # todo: add more information to message\nE   selene.exceptions.ConditionMismatchException\n\nDuring handling of the above exception, another exception occurred:\n..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\elements.py:188: in _wait_with_screenshot\n    return wait_for(entity, condition, timeout, polling)\n..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\wait.py:35: in wait_for\n    reason=reason_string), screen, stacktrace)\nE   selenium.common.exceptions.TimeoutException: Message: \nE               failed while waiting 4 seconds\nE               to assert not Clickable\nE               for first_by('css selector', '#logoimg')\nE   \nE               reason: ConditionMismatchException: condition did not match\n\nDuring handling of the above exception, another exception occurred:\ntests\\test_WelcomePage.py:21: in test_Welcome_page\n    WelcomePage().logo.should(be.not_(be.clickable))\n..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\elements.py:306: in should\n    _wait_with_screenshot(self._webdriver, self, condition, timeout)\n..\\..\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\elements.py:193: in _wait_with_screenshot\n    raise TimeoutException(msg, e.screen, e.stacktrace)\nE   selenium.common.exceptions.TimeoutException: Message: \nE               failed while waiting 4 seconds\nE               to assert not Clickable\nE               for first_by('css selector', '#logoimg')\nE   \nE               reason: ConditionMismatchException: condition did not match\nE               screenshot: file://C:\\Users\\sepro\\.selene\\screenshots\\1540799885531\\screen_1540799885532.png",
+    "steps" : [ {
+      "name" : "Open url: http://flixon.tvmucho.com",
+      "time" : {
+        "start" : 1540799885783,
+        "stop" : 1540799890090,
+        "duration" : 4307
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Check page's title",
+      "time" : {
+        "start" : 1540799890090,
+        "stop" : 1540799890098,
+        "duration" : 8
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Check that logo is visible",
+      "time" : {
+        "start" : 1540799890098,
+        "stop" : 1540799894492,
+        "duration" : 4394
+      },
+      "status" : "broken",
+      "statusMessage" : "selenium.common.exceptions.TimeoutException: Message: \n            failed while waiting 4 seconds\n            to assert not Clickable\n            for first_by('css selector', '#logoimg')\n\n            reason: ConditionMismatchException: condition did not match\n            screenshot: file://C:\\Users\\sepro\\.selene\\screenshots\\1540799885531\\screen_1540799885532.png\n\n",
+      "statusTrace" : "  File \"C:\\Users\\sepro\\PycharmProjects\\TVMucho\\tests\\test_WelcomePage.py\", line 21, in test_Welcome_page\n    WelcomePage().logo.should(be.not_(be.clickable))\n  File \"c:\\users\\sepro\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\elements.py\", line 306, in should\n    _wait_with_screenshot(self._webdriver, self, condition, timeout)\n  File \"c:\\users\\sepro\\.virtualenvs\\tvmucho\\lib\\site-packages\\selene\\elements.py\", line 193, in _wait_with_screenshot\n    raise TimeoutException(msg, e.screen, e.stacktrace)\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "90865a8bc24a7d6b",
+      "name" : "log",
+      "source" : "90865a8bc24a7d6b.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "da66581ccdd9d528",
+      "name" : "stdout",
+      "source" : "da66581ccdd9d528.txt",
+      "type" : "text/plain",
+      "size" : 154
+    }, {
+      "uid" : "c392d176bfef6609",
+      "name" : "stderr",
+      "source" : "c392d176bfef6609.txt",
+      "type" : "text/plain",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true,
+    "stepsCount" : 3,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_WelcomePage"
+  }, {
+    "name" : "host",
+    "value" : "LT-258719"
+  }, {
+    "name" : "thread",
+    "value" : "30200-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_WelcomePage"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "baa9eb696b8adc01",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: module 'selene.support.conditions.be' has no attribute 'not_visible'",
+      "time" : {
+        "start" : 1540799783066,
+        "stop" : 1540799787117,
+        "duration" : 4051
+      }
+    } ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "24f78dd442f456a8.json",
+  "parameterValues" : [ ]
+}

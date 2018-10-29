@@ -1,0 +1,25 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "selenium.common.exceptions.TimeoutException: Message: \n            failed while waiting 4 seconds\n            to assert not Clickable\n            for first_by('css selector', '#logoimg')\n\n            reason: ConditionMismatchException: condition did not match\n            screenshot: file://C:\\Users\\sepro\\.selene\\screenshots\\1540799885531\\screen_1540799885532.png",
+      "children" : [ {
+        "name" : "Welcome Page showing",
+        "uid" : "24f78dd442f456a8",
+        "parentUid" : "e9e02078ead45b58fcf27535db3823f4",
+        "status" : "broken",
+        "time" : {
+          "start" : 1540799885783,
+          "stop" : 1540799894514,
+          "duration" : 8731
+        },
+        "flaky" : true,
+        "parameters" : [ ]
+      } ],
+      "uid" : "e9e02078ead45b58fcf27535db3823f4"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}

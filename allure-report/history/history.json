@@ -1,0 +1,22 @@
+{
+  "f8633fa8a45a887fb4b314c18f8f4a1c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "24f78dd442f456a8",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.TimeoutException: Message: \n            failed while waiting 4 seconds\n            to assert not Clickable\n            for first_by('css selector', '#logoimg')\n\n            reason: ConditionMismatchException: condition did not match\n            screenshot: file://C:\\Users\\sepro\\.selene\\screenshots\\1540799885531\\screen_1540799885532.png",
+      "time" : {
+        "start" : 1540799885783,
+        "stop" : 1540799894514,
+        "duration" : 8731
+      }
+    } ]
+  }
+}

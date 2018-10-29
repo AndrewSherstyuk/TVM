@@ -1,0 +1,11 @@
+[ {
+  "uid" : "24f78dd442f456a8",
+  "name" : "Welcome Page showing",
+  "time" : {
+    "start" : 1540799885783,
+    "stop" : 1540799894514,
+    "duration" : 8731
+  },
+  "status" : "broken",
+  "severity" : "normal"
+} ]
