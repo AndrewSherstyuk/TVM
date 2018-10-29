@@ -17,9 +17,10 @@ def driver_setup(request):
     selected_browser = request.config.getoption('--browser')
     print("Selected browser is " + selected_browser)
     if selected_browser is 'chrome':
-        config.browser_name = 'chrome'
+        config.SELENE_BROWSER_NAME = 'chrome'
     else:
         raise Exception("Incorrect browser name")
+    config.SELENE_TIMEOUT = 10
 
 
 def pytest_addoption(parser):
