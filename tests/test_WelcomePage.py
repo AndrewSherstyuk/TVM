@@ -9,10 +9,8 @@ incorrect_password_1 = "00000"
 
 
 @allure.title("Welcome Page showing")
-@allure.description("""This test opens BASE URL and checks that Welcome Page is shown to user. And it contains all
-                        required elements.""")
-
-
+@allure.description("""This test opens BASE URL and checks that Welcome Page is shown to user. 
+And it contains all required elements.""")
 def test_signin_page_initial_state():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
@@ -36,9 +34,9 @@ def test_successful_login():
         browser.open_url(BASE_URL)
     with allure.step("Click on the Sign In button"):
         SigninPage().tap_on_sign_in()
-    with allure.step("Fill in the Username field with existing user's Username"):
+    with allure.step("Fill in the Email field with existing user's email"):
         SigninPage().fill_in_the_username_field(correct_email)
-    with allure.step("Fill in the Password field with existing user's Password"):
+    with allure.step("Fill in the Password field with existing user's password"):
         SigninPage().fill_in_the_password_field(correct_password)
     with allure.step("Submit login"):
         SigninPage().submit_login()
@@ -52,7 +50,7 @@ def test_unsuccessful_login_incorrect_password():
         browser.open_url(BASE_URL)
     with allure.step("Click on the Sign In button"):
         SigninPage().tap_on_sign_in()
-    with allure.step("Fill in the Username field with existing user's Username"):
+    with allure.step("Fill in the Email field with existing user's email"):
         SigninPage().fill_in_the_username_field(correct_email)
     with allure.step("Fill in the Password field with existing user's Password"):
         SigninPage().fill_in_the_password_field(incorrect_password_1)
@@ -68,7 +66,7 @@ def test_unsuccessful_login_empty_password_field():
         browser.open_url(BASE_URL)
     with allure.step("Click on the Sign In button"):
         SigninPage().tap_on_sign_in()
-    with allure.step("Fill in the Username field with existing user's Username"):
+    with allure.step("Fill in the Email field with existing user's email"):
         SigninPage().fill_in_the_username_field(correct_email)
     with allure.step("Submit login"):
         SigninPage().submit_login()
@@ -77,12 +75,28 @@ def test_unsuccessful_login_empty_password_field():
     browser.quit_driver()
 
 
+def test_unsuccessful_login_incorrect_username():
+    with allure.step("Open url: " + BASE_URL):
+        browser.open_url(BASE_URL)
+    with allure.step("Click on the Sign In button"):
+        SigninPage().tap_on_sign_in()
+    with allure.step("Fill in the Email field with non-existing   user's email"):
+        SigninPage().fill_in_the_username_field(correct_email)
+    with allure.step("Fill in the Password field with existing user's Password"):
+        SigninPage().fill_in_the_password_field(incorrect_password_1)
+    with allure.step("Submit login"):
+        SigninPage().submit_login()
+    with allure.step("Check the Login error message"):
+        SigninPage().check_login_error_message()
+    browser.quit_driver()
+
+
 def test_unsuccessful_login_empty_username_field():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
     with allure.step("Click on the Sign In button"):
         SigninPage().tap_on_sign_in()
-    with allure.step("Fill in the Username field with existing user's Username"):
+    with allure.step("Fill in the Email field with existing user's email"):
         SigninPage().fill_in_the_password_field(correct_password)
     with allure.step("Submit login"):
         SigninPage().submit_login()
@@ -96,7 +110,7 @@ def test_logout():
         browser.open_url(BASE_URL)
     with allure.step("Click on the Sign In button"):
         SigninPage().tap_on_sign_in()
-    with allure.step("Fill in the Username field with existing user's Username"):
+    with allure.step("Fill in the Email field with existing user's email"):
         SigninPage().fill_in_the_username_field(correct_email)
     with allure.step("Fill in the Password field with existing user's Password"):
         SigninPage().fill_in_the_password_field(correct_password)
@@ -118,7 +132,7 @@ def test_no_button_on_logout_confirmation():
         browser.open_url(BASE_URL)
     with allure.step("Click on the Sign In button"):
         SigninPage().tap_on_sign_in()
-    with allure.step("Fill in the Username field with existing user's Username"):
+    with allure.step("Fill in the Email field with existing user's email"):
         SigninPage().fill_in_the_username_field(correct_email)
     with allure.step("Fill in the Password field with existing user's Password"):
         SigninPage().fill_in_the_password_field(correct_password)
@@ -133,5 +147,3 @@ def test_no_button_on_logout_confirmation():
     with allure.step("Verify the user is still logged in"):
         GuidePage().sign_out_btn.should(be.visible)
     browser.quit_driver()
-
-
