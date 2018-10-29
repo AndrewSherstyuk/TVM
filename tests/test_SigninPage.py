@@ -6,7 +6,8 @@ from core.randomizer import *
 
 correct_email = "0000@0000.com"
 correct_password = "000000"
-incorrect_password_1 = "00000"
+incorrect_email = Randomizer.email()
+incorrect_password = Randomizer.password(size=6)
 
 
 @allure.title("Welcome Page showing")
@@ -54,10 +55,10 @@ def test_unsuccessful_login_incorrect_password():
     with allure.step("Fill in the Email field with existing user's email"):
         SigninPage().fill_in_the_username_field(correct_email)
     with allure.step("Fill in the Password field with existing user's Password"):
-        SigninPage().fill_in_the_password_field(incorrect_password_1)
+        SigninPage().fill_in_the_password_field(incorrect_password)
     with allure.step("Submit login"):
         SigninPage().submit_login()
-    with allure.step("Check the Login error message"):
+    with allure.step("Verify that the Login error message is displayed"):
         SigninPage().check_login_error_message()
     browser.quit_driver()
 
@@ -76,15 +77,15 @@ def test_unsuccessful_login_empty_password_field():
     browser.quit_driver()
 
 
-def test_unsuccessful_login_incorrect_username():
+def test_unsuccessful_login_incorrect_email():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
     with allure.step("Click on the Sign In button"):
         SigninPage().tap_on_sign_in()
     with allure.step("Fill in the Email field with non-existing   user's email"):
-        SigninPage().fill_in_the_username_field(correct_email)
+        SigninPage().fill_in_the_username_field(incorrect_email)
     with allure.step("Fill in the Password field with existing user's Password"):
-        SigninPage().fill_in_the_password_field(incorrect_password_1)
+        SigninPage().fill_in_the_password_field(correct_password)
     with allure.step("Submit login"):
         SigninPage().submit_login()
     with allure.step("Check the Login error message"):
@@ -92,7 +93,7 @@ def test_unsuccessful_login_incorrect_username():
     browser.quit_driver()
 
 
-def test_unsuccessful_login_empty_username_field():
+def test_unsuccessful_login_empty_email_field():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
     with allure.step("Click on the Sign In button"):
