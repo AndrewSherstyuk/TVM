@@ -10,9 +10,8 @@ incorrect_email = Randomizer.email()
 incorrect_password = Randomizer.password(size=6)
 
 
-@allure.title("Welcome Page showing")
-@allure.description("""This test opens BASE URL and checks that Welcome Page is shown to user. 
-And it contains all required elements.""")
+@allure.title("Sign In page initial state verification")
+@allure.description("""The test opens the Sign In page and verifies that all its elements are available""")
 def test_signin_page_initial_state():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
@@ -31,6 +30,9 @@ def test_signin_page_initial_state():
     browser.quit_driver()
 
 
+@allure.title("Sign In page: Successful Sign In")
+@allure.description("""The test verifies that Sign In functions as expected: the user is able to 
+successfully sign in.""")
 def test_successful_login():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
@@ -47,6 +49,9 @@ def test_successful_login():
     browser.quit_driver()
 
 
+@allure.title("Sign In page: Unsuccessful Sign In with incorrect password")
+@allure.description("""The test verifies that Sign In functions as expected: the user is unable to sign in
+using the wrong password.""")
 def test_unsuccessful_login_incorrect_password():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
@@ -63,6 +68,9 @@ def test_unsuccessful_login_incorrect_password():
     browser.quit_driver()
 
 
+@allure.title("Sign In page: Unsuccessful Sign In with the Password left empty")
+@allure.description("""The test verifies that Sign In functions as expected: the user is unable to sign in
+if the Password field is left empty""")
 def test_unsuccessful_login_empty_password_field():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
@@ -77,6 +85,9 @@ def test_unsuccessful_login_empty_password_field():
     browser.quit_driver()
 
 
+@allure.title("Sign In page: Unsuccessful Sign In with incorrect email")
+@allure.description("""The test verifies that Sign In functions as expected: the user is unable to sign in
+with a wrong email.""")
 def test_unsuccessful_login_incorrect_email():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
@@ -93,6 +104,9 @@ def test_unsuccessful_login_incorrect_email():
     browser.quit_driver()
 
 
+@allure.title("Sign In page: Unsuccessful Sign In with the Email left empty")
+@allure.description("""The test verifies that Sign In functions as expected: the user is unable to sign in
+if the Email field is left empty""")
 def test_unsuccessful_login_empty_email_field():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
@@ -106,6 +120,10 @@ def test_unsuccessful_login_empty_email_field():
         SigninPage().check_that_signin_page_is_still_displayed()
     browser.quit_driver()
 
+
+@allure.title("Sign In page: Unsuccessful Sign In with the Password and Email fields left empty")
+@allure.description("""The test verifies that Sign In functions as expected: the user is unable to sign in
+if the Password and Email fields are left empty""")
 def test_unsuccessful_login_empty_email_and_password_fields():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
@@ -118,6 +136,9 @@ def test_unsuccessful_login_empty_email_and_password_fields():
     browser.quit_driver()
 
 
+@allure.title("Successful Sign Out")
+@allure.description("""The test verifies that Sign Out functions as expected: the user is able to 
+successfully sign out to the site.""")
 def test_logout():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
@@ -140,6 +161,9 @@ def test_logout():
     browser.quit_driver()
 
 
+@allure.title("Sign Out: No is selected on the Sign Out Confirmation popup")
+@allure.description("""The test verifies that Sign Out functions as expected: the user is able to 
+cancel sign out by selecting No on the Sign Out confirmation popup.""")
 def test_no_button_on_logout_confirmation():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
