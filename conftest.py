@@ -26,12 +26,12 @@ def driver_setup(request):
 def pytest_addoption(parser):
     parser.addoption('--browser', action='store', default='chrome', help='Select browser to run test')
 
-def pytest_exception_interact(node, call, report):
-    from selene.browser import driver
-    attach(
-            driver().get_screenshot_as_png(),
-            name="Screenshot",
-            attachment_type=AttachmentType.PNG)
+# def pytest_exception_interact(node, call, report):
+#     from selene.browser import driver
+#     attach(
+#             driver().get_screenshot_as_png(),
+#             name="Screenshot",
+#             attachment_type=AttachmentType.PNG)
 
 
 """ session fixture. Prepares data for report generating at the end of session. """
