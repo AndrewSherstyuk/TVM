@@ -14,6 +14,10 @@ incorrect_password = Randomizer.password(size=6)
 @allure.description("""This test opens BASE URL and checks that Welcome Page is shown to user. 
 And it contains all required elements.""")
 def test_signin_page_initial_state():
+    try:
+        browser.quit_driver()
+    except:
+        pass
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
     with allure.step("Check page's title"):

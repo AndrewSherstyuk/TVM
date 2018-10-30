@@ -17,21 +17,21 @@ def driver_setup(request):
     selected_browser = request.config.getoption('--browser')
     print("Selected browser is " + selected_browser)
     if selected_browser is 'chrome':
-        config.SELENE_BROWSER_NAME = 'chrome'
+        config.browser_name = 'chrome'
     else:
         raise Exception("Incorrect browser name")
-    config.SELENE_TIMEOUT = 10
+    config.timeout = 10
 
 
 def pytest_addoption(parser):
     parser.addoption('--browser', action='store', default='chrome', help='Select browser to run test')
 
-def pytest_exception_interact(node, call, report):
-    from selene.browser import driver
-    attach(
-            driver().get_screenshot_as_png(),
-            name="Screenshot",
-            attachment_type=AttachmentType.PNG)
+# def pytest_exception_interact(node, call, report):
+#     from selene.browser import driver
+#     attach(
+#             driver().get_screenshot_as_png(),
+#             name="Screenshot",
+#             attachment_type=AttachmentType.PNG)
 
 
 """ session fixture. Prepares data for report generating at the end of session. """
