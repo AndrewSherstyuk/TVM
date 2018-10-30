@@ -16,16 +16,16 @@ And it contains all required elements.""")
 def test_signin_page_initial_state():
     with allure.step("Open url: " + BASE_URL):
         browser.open_url(BASE_URL)
-    with allure.step("Check page's title"):
+    with allure.step("Verify the page title"):
         element = browser.title()
         assert element == "Flixon TV"
-    with allure.step("Check that logo is visible"):
+    with allure.step("Verify that logo is visible"):
         SigninPage().logo.should(be.visible)
-    with allure.step("Check that welcome window is visible"):
+    with allure.step("Verify that welcome window is visible"):
         SigninPage().welcome_window.should(be.visible)
-    with allure.step("Check that welcome text matches with expected"):
+    with allure.step("Verify that welcome text matches the requirements"):
         SigninPage().welcome_text.should(have.text('Welcome to Flixon TV...'))
-    with allure.step("Check that Sign in button is clickable and moves user to Sign In page"):
+    with allure.step("Verify that Sign in button is clickable"):
         SigninPage().sign_in_btn.should(be.visible).should(be.clickable)
         assert SigninPage().sign_in_btn.text == "SIGN IN"
     browser.quit_driver()
@@ -82,13 +82,13 @@ def test_unsuccessful_login_incorrect_email():
         browser.open_url(BASE_URL)
     with allure.step("Click on the Sign In button"):
         SigninPage().tap_on_sign_in()
-    with allure.step("Fill in the Email field with non-existing   user's email"):
+    with allure.step("Fill in the Email field with non-existing user's email"):
         SigninPage().fill_in_the_username_field(incorrect_email)
     with allure.step("Fill in the Password field with existing user's Password"):
         SigninPage().fill_in_the_password_field(correct_password)
     with allure.step("Submit login"):
         SigninPage().submit_login()
-    with allure.step("Check the Login error message"):
+    with allure.step("Verify the Login error message"):
         SigninPage().check_login_error_message()
     browser.quit_driver()
 
@@ -100,9 +100,20 @@ def test_unsuccessful_login_empty_email_field():
         SigninPage().tap_on_sign_in()
     with allure.step("Fill in the Email field with existing user's email"):
         SigninPage().fill_in_the_password_field(correct_password)
-    with allure.step("Submit login"):
+    with allure.step("Submit login with empty Email field"):
         SigninPage().submit_login()
-    with allure.step("Verify that the Sign In page is still displayed"):
+    with allure.step("Verify that the user is still logged out"):
+        SigninPage().check_that_signin_page_is_still_displayed()
+    browser.quit_driver()
+
+def test_unsuccessful_login_empty_email_and_password_fields():
+    with allure.step("Open url: " + BASE_URL):
+        browser.open_url(BASE_URL)
+    with allure.step("Click on the Sign In button"):
+        SigninPage().tap_on_sign_in()
+    with allure.step("Submit login with empty Email and Password field"):
+        SigninPage().submit_login()
+    with allure.step("Verify that the user is still logged out"):
         SigninPage().check_that_signin_page_is_still_displayed()
     browser.quit_driver()
 
