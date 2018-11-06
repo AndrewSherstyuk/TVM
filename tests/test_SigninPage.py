@@ -1,6 +1,6 @@
 import allure
 from pages.SigninPage import *
-from pages.GuidePage import *
+from pages.PageHeader import *
 from core.globals import *
 from core.randomizer import *
 
@@ -153,9 +153,9 @@ def test_logout():
     with allure.step("Verify that the Guide page is opened"):
         GuidePage().day_selector.should(be.visible)
     with allure.step("Click on Logout button"):
-        GuidePage().click_on_signout_btn()
+        PageHeader().click_on_signout_btn()
     with allure.step("Click Yes on Logout confirmation"):
-        GuidePage().confirm_wish_to_logout()
+        PageHeader().confirm_wish_to_logout()
     with allure.step("Verify that the user is logged out"):
         SigninPage().sign_in_btn.should(be.visible)
     browser.quit_driver()
@@ -178,9 +178,9 @@ def test_no_button_on_logout_confirmation():
     with allure.step("Verify that the Guide page is opened"):
         GuidePage().day_selector.should(be.visible)
     with allure.step("Click on Logout button"):
-        GuidePage().click_on_signout_btn()
+        PageHeader().click_on_signout_btn()
     with allure.step("Click No on Logout confirmation"):
-        GuidePage().confirm_wish_to_not_logout()
+        PageHeader().confirm_wish_to_not_logout()
     with allure.step("Verify the user is still logged in"):
-        GuidePage().sign_out_btn.should(be.visible)
+        PageHeader().sign_out_btn.should(be.visible)
     browser.quit_driver()
