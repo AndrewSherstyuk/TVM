@@ -10,12 +10,17 @@ __pycache__
 
 .pytest_cache
 .idea/
-.gitignore
 tests/.pytest_cache/
 tmp/
 
 */__pycache__/
+pages/__pycache__/*
+__pycache__
+__pycache__/*
+__pycache__/**/*
+__pycache__/conftest.cpython-37-PYTEST.pyc
 
+*.pyc
 venv
 venv/
 venv/*
