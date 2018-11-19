@@ -31,7 +31,7 @@ def test_signin_page_initial_state():
 
 
 @allure.title("Sign In page: Successful Sign In")
-@allure.description("""The test verifies that Sign In functions as expected: the user is able to 
+@allure.description("""The test verifies that Sign In functions as expected: the user is able to
 successfully sign in.""")
 def test_successful_login():
     with allure.step("Open url: " + BASE_URL):
@@ -137,7 +137,7 @@ def test_unsuccessful_login_empty_email_and_password_fields():
 
 
 @allure.title("Successful Sign Out")
-@allure.description("""The test verifies that Sign Out functions as expected: the user is able to 
+@allure.description("""The test verifies that Sign Out functions as expected: the user is able to
 successfully sign out to the site.""")
 def test_logout():
     with allure.step("Open url: " + BASE_URL):
@@ -162,7 +162,7 @@ def test_logout():
 
 
 @allure.title("Sign Out: No is selected on the Sign Out Confirmation popup")
-@allure.description("""The test verifies that Sign Out functions as expected: the user is able to 
+@allure.description("""The test verifies that Sign Out functions as expected: the user is able to
 cancel sign out by selecting No on the Sign Out confirmation popup.""")
 def test_no_button_on_logout_confirmation():
     with allure.step("Open url: " + BASE_URL):

@@ -1,5 +1,7 @@
 from selene.api import *
 from pages.GuidePage import *
+from core.globals import *
+
 
 class SigninPage(object):
 
@@ -36,6 +38,7 @@ class SigninPage(object):
         self.submit_login_btn.should(be.visible)
 
     def login_as_user(self, correct_email, correct_password):
+        browser.open_url(BASE_URL)
         SigninPage().tap_on_sign_in()
         SigninPage().fill_in_the_username_field(correct_email)
         SigninPage().fill_in_the_password_field(correct_password)

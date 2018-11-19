@@ -15,7 +15,8 @@ class PlayerPage(object):
         self.volume_button = s('#mute')
         self.fullscreen_button = s('#fullscreenbutton')
 
-        self.channels_left_arrow_button = s('#channels-leftarrowblock')
+        self.channels_line = s('#channels-player')
+        self.channels_left_arrow_button = s('#channels-leftarrow')
         self.channels_right_arrow_button = s('#channels-rightarrowblock')
 
         # Player Controls above the progress bar
@@ -23,8 +24,11 @@ class PlayerPage(object):
         self.left_arrow_button = s('#leftarrowblock')
         self.right_arrow_button = s('#rightarrowblock')
 
-        #Channel Selectors
-        self.first_channel_in_the_list = s('#channel-selector > li:nth-child(1) > div')
+        self.player_window = s('#player')
+
+    def click_on_the_player_to_unhide_controls(self):
+        self.player_window.double_click()
+        self.player_window.hover()
 
     def tap_on_the_first_channel_in_the_list(self):
         self.first_channel_in_the_list.click()
@@ -35,7 +39,8 @@ class PlayerPage(object):
         return
 
     def tap_on_channels_button(self):
-        self.channels_button.click();
+        self.channels_button.double_click()
+        self.player_window.hover()
         return
 
     def tap_on_favorite_button(self):
