@@ -8,10 +8,44 @@ class PlayerPage(object):
         # Player Controls below the progress bar
         self.home_button = s('#pmhome')
         self.channels_button = s('#pmchannels')
-        self.favorite_button = s('#favorite')
+        self.favorite_button = s('#favoritebutton')
+        self.favorite_button_not_clicked = ["xpath", '//favorite.playermenuitem.focus[contains(@css, "fa.fa-heart-o")]']
         self.playstop_button = s('#playstop')
-        self.cc_menu_button = s('#captionsmenu')
+        self.stop_button = s(by.css('.fa fa-stop'))
+        self.playstop_stop_button = s(by.xpath("//I[@class='fa fa-stop']"))
+        self.playstop_play_button = s(by.xpath("//I[@class='fa fa-play']"))
+
+        self.cc_menu_button = s(by.xpath("//I[@class='far buttoncaption']"))
+        self.cc_menu_english_option = s(by.xpath("//BUTTON[@class='caption selectable'][text()='English']"))
+        self.cc_menu_off_option = s(by.xpath("//BUTTON[@id='captionoff']"))
+
         self.help_button = s('#help')
+
+        # The Help panel gets visible when the Help button is tapped/clicked. It contains 4 items
+        self.help_panel = s('#help-panel')
+        self.somethingwrong_option = s(by.xpath("//SPAN[@data-translate='pl_main_modal_panel_form']"))
+        self.showplaybackstats_option = s(by.xpath("//SPAN[@data-translate='pl_main_modal_panel_show_stats'][text()='Show playback stats']"))
+        self.reloadstream_option = s(by.xpath("//SPAN[@data-translate='pl_main_modal_panel_reload'][text()='Reload stream']"))
+        self.close_option = s(by.xpath("//SPAN[@data-translate='pl_main_modal_panel_close'][text()='Close']"))
+
+        # The Help form appears when Something Wrong option is selected from the Help panel
+        self.help_form = s("#help-form")
+        self.help_form_input_field = s('#message')
+        self.help_form_close_button = s(by.xpath("(//BUTTON[@data-remodal-action='cancel'][text()='Close'][text()='Close'])[2]"))
+        self.help_form_submitreport_button = s(by.xpath("//BUTTON[@data-remodal-action='confirm'][text()='Submit report']"))
+        self.help_form_report_received_notification = s("#debug-data-modal")
+        self.help_form_report_received_notification_heading = s(by.xpath("//H1[@class='heading-done'][text()='Your report has been received']"))
+        self.help_form_report_received_notification_confirm_button = s(by.xpath("//BUTTON[@data-remodal-action='confirm'][text()='Continue']"))
+
+        # The Playback Stats popup appears when the Playback Stats option is selected from the Help menu
+        self.playbackstats_popup = s("#playback-stats")
+        self.playbackstats_popup_close_button = s(by.xpath("//DIV[@class='close'][text()='[x]']"))
+
+        self.help_form_empty_report_notification = s("#tvm-alert")
+        self.help_form_empty_report_notification_title = s(by.xpath("//H1[@class='title'][text()='Oops!']"))
+        self.help_form_empty_report_notification_message = s(by.xpath("//H3[@class='message'][text()='You have to fill the form before sending report']"))
+        self.help_form_empty_report_notification_conrim_button = s(by.xpath("(//BUTTON[@data-remodal-action='confirm'][text()='OK'][text()='OK'])[1]"))
+
         self.volume_button = s('#mute')
         self.fullscreen_button = s('#fullscreenbutton')
 
@@ -26,7 +60,7 @@ class PlayerPage(object):
 
         self.player_window = s('#player')
 
-    def click_on_the_player_to_unhide_controls(self):
+    def make_player_controls_visible(self):
         self.player_window.double_click()
         self.player_window.hover()
 

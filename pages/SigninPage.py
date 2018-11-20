@@ -1,9 +1,13 @@
 from selene.api import *
 from pages.GuidePage import *
 from core.globals import *
+import time
 
 
 class SigninPage(object):
+
+    correct_email = "0000@0000.com"
+    correct_password = "010101"
 
     def __init__(self):
         self.logo = s("#logoimg")
@@ -37,13 +41,14 @@ class SigninPage(object):
     def check_that_signin_page_is_still_displayed(self):
         self.submit_login_btn.should(be.visible)
 
-    def login_as_user(self, correct_email, correct_password):
+    def login_as_user(self):
         browser.open_url(BASE_URL)
         SigninPage().tap_on_sign_in()
-        SigninPage().fill_in_the_username_field(correct_email)
-        SigninPage().fill_in_the_password_field(correct_password)
+        SigninPage().fill_in_the_username_field(self.correct_email)
+        SigninPage().fill_in_the_password_field(self.correct_password)
         SigninPage().submit_login()
         GuidePage().day_selector.should(be.visible)
+        time.sleep(5)
 
 
 
