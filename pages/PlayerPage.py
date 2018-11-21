@@ -46,7 +46,10 @@ class PlayerPage(object):
         self.help_form_empty_report_notification_message = s(by.xpath("//H3[@class='message'][text()='You have to fill the form before sending report']"))
         self.help_form_empty_report_notification_conrim_button = s(by.xpath("(//BUTTON[@data-remodal-action='confirm'][text()='OK'][text()='OK'])[1]"))
 
-        self.volume_button = s('#mute')
+        self.volume_button = s('#mutebutton')
+        self.volume_button_off_state = s(by.css('fa fa-volume-off'))
+        self.volume_button_on_state = s(by.css('fa fa-volume-up'))
+
         self.fullscreen_button = s('#fullscreenbutton')
 
         self.channels_line = s('#channels-player')
@@ -59,6 +62,22 @@ class PlayerPage(object):
         self.right_arrow_button = s('#rightarrowblock')
 
         self.player_window = s('#player')
+
+    def initial_check_of_player_page(self):
+        self.home_button.should(be.clickable)
+        self.channels_button.should(be.clickable)
+        self.favorite_button.should(be.clickable)
+        self.playstop_stop_button.should(be.visible)
+        self.cc_menu_button.should(be.clickable)
+        self.help_button.should(be.clickable)
+        self.volume_button.should(be.clickable)
+        self.fullscreen_button.should(be.clickable)
+        self.player_window.should(be.visible)
+
+        # TBD TBD TBD (arrows to switch between the channels, event annotation, channel logo, etc))
+
+
+
 
     def make_player_controls_visible(self):
         self.player_window.double_click()

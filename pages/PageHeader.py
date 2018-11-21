@@ -18,3 +18,16 @@ class PageHeader(object):
         self.sign_out_btn = s('#exit_btn')
         self.yes_on_logout_confirmation = s(".remodal-confirm")
         self.no_on_logout_confirmation = s(".remodal-cancel.focus")
+
+    def click_on_signout_btn(self):
+        self.sign_out_btn.click()
+
+    def confirm_wish_to_logout(self):
+        self.yes_on_logout_confirmation.click()
+
+    def log_out(self):
+        self.click_on_signout_btn()
+        self.yes_on_logout_confirmation
+
+    def confirm_wish_to_not_logout(self):
+        self.no_on_logout_confirmation.click()

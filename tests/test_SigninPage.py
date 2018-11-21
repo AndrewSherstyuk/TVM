@@ -5,7 +5,7 @@ from core.globals import *
 from core.randomizer import *
 
 correct_email = "0000@0000.com"
-correct_password = "000000"
+correct_password = "010101"
 incorrect_email = Randomizer.email()
 incorrect_password = Randomizer.password(size=6)
 
