@@ -10,8 +10,11 @@ class PlayerPage(object):
         self.channels_button = s('#pmchannels')
         self.favorite_button = s('#favoritebutton')
         self.favorite_button_not_clicked = ["xpath", '//favorite.playermenuitem.focus[contains(@css, "fa.fa-heart-o")]']
+        self.back_10_sec_button = s(".icon2-10rew.small")
+        self.back_button = s(".fa.fa-backward")
+        self.forward_button = s(".fa.fa-forward")
+        self.forward_30_sec_button = s(".icon2-30forw.small")
         self.playstop_button = s('#playstop')
-        self.stop_button = s(by.css('.fa fa-stop'))
         self.playstop_stop_button = s(by.xpath("//I[@class='fa fa-stop']"))
         self.playstop_play_button = s(by.xpath("//I[@class='fa fa-play']"))
 
@@ -72,12 +75,34 @@ class PlayerPage(object):
         self.help_button.should(be.clickable)
         self.volume_button.should(be.clickable)
         self.fullscreen_button.should(be.clickable)
-        self.player_window.should(be.visible)
 
-        # TBD TBD TBD (arrows to switch between the channels, event annotation, channel logo, etc))
+    def initial_check_of_player_page_ongoing_event(self):
+        self.home_button.should(be.clickable)
+        self.channels_button.should(be.visible).should(be.clickable)
+        self.favorite_button.should(be.visible).should(be.clickable)
+        self.back_10_sec_button.should_not(be.visible)
+        self.back_button.should_not(be.visible)
+        self.forward_button.should_not(be.visible)
+        self.forward_30_sec_button.should_not(be.visible)
+        self.playstop_stop_button.should(be.visible).should(be.visible)
+        self.cc_menu_button.should(be.visible).should(be.clickable)
+        self.help_button.should(be.visible).should(be.clickable)
+        self.volume_button.should(be.visible).should(be.clickable)
+        self.fullscreen_button.should(be.visible).should(be.clickable)
 
-
-
+    def initial_check_of_player_page_recorded_event(self):
+        self.home_button.should(be.visible).should(be.clickable)
+        self.channels_button.should_not(be.visible).should_not(be.visible)
+        self.favorite_button.should_not(be.visible)
+        self.back_10_sec_button.should(be.visible)
+        self.back_button.should(be.visible).should(be.visible)
+        self.forward_button.should(be.visible).should(be.visible)
+        self.forward_30_sec_button.should(be.visible).should(be.visible)
+        self.playstop_stop_button.should(be.visible).should(be.visible)
+        self.cc_menu_button.should(be.visible).should(be.clickable)
+        self.help_button.should(be.visible).should(be.clickable)
+        self.volume_button.should(be.visible).should(be.clickable)
+        self.fullscreen_button.should(be.visible).should(be.clickable)
 
     def make_player_controls_visible(self):
         self.player_window.double_click()

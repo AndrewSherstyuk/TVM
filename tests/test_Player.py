@@ -1,32 +1,6 @@
 import allure
-import time
-from pages.SigninPage import *
-from pages.GuidePage import *
-from pages.PageHeader import *
 from pages.PlayerPage import *
-from core.globals import *
-from core.randomizer import *
-
-correct_email = "0000@0000.com"
-correct_password = "010101"
-
-
-@allure.title("Video Player: Initial state of the page verification")
-@allure.description("""The test opens video player from the Guide page, taps
-on the Home button and verifies that the Guide screen opens""")
-def test_player_initial_state_verification():
-    with allure.step("Sign In as an existing user"):
-        SigninPage().login_as_user()
-    with allure.step("Tap on the first channel in the list"):
-        GuidePage().first_channel_in_the_list.click()
-        time.sleep(2)
-    # with allure.step("Get the player controls visible"):
-    #     PlayerPage().player_window.double_click()
-    #     PlayerPage().player_window.hover()
-    with allure.step("Verify the initial state of the page"):
-        PlayerPage().initial_check_of_player_page()
-        time.sleep(1)
-        browser.quit_driver()
+from pages.SigninPage import *
 
 
 @allure.title("Video Player: Home button verification")
