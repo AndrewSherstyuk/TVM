@@ -65,20 +65,13 @@ def test_oops_1_hour_popup_verification():
     with allure.step("Verify that the playback is up and running"):
         OneHourViewFlow().player_playstop_button.should(be.visible)
     with allure.step("Wait for 57.5 minutes"):
-        time.sleep(3450)
+        time.sleep(3400)
     with allure.step("Verify that the playback is up and running"):
         PlayerPage().player_window.click()
         OneHourViewFlow().player_playstop_button.should(be.visible)
         time.sleep(2)
     with allure.step("Wait for 5 minutes so the playback is expired"):
         time.sleep(300)
-    with allure.step("Click on the video to turn the playback (if still any) to the Oops popup"):
-        try:
-            PlayerPage().player_window.click()
-            OneHourViewFlow().player_playstop_button.should(be.visible)
-            time.sleep(2)
-        except:
-            pass
     with allure.step("Verify that the Registration popup gets displayed"):
         OneHourViewFlow().oops_popup.should(be.visible)
         browser.quit_driver()
