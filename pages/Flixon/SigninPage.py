@@ -21,6 +21,9 @@ class SigninPage(object):
         self.error_message_text = s("Incorrect Username and/or Password")
         self.sign_in_header = s(".signinheader")
 
+        self.activation_code_field = s("#activationcode")
+        self.activation_code_signin_button = s("#signin")
+
     def tap_on_sign_in(self):
         # self.welcome_text.should(have.text('Welcome to Flixon TV...'))
         self.sign_in_btn.click()
