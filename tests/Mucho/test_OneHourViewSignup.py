@@ -81,6 +81,7 @@ def test_oops_1_hour_popup_verification():
             pass
     with allure.step("Verify that the Registration popup gets displayed"):
         OneHourViewFlow().oops_popup.should(be.visible)
+        browser.quit_driver()
 
 
 
