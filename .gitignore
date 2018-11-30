@@ -24,3 +24,5 @@ __pycache__/conftest.cpython-37-PYTEST.pyc
 venv
 venv/
 venv/*
+
+debug.log
