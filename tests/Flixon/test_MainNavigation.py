@@ -1,17 +1,10 @@
 import allure
-from pages.SigninPage import *
-from pages.GuidePage import *
-from pages.PageHeader import *
-from pages.CinemaPage import *
-from pages.MyTVPage import *
-from pages.OnDemandPage import *
-from pages.OnNowPage import *
-from pages.RecordingsPage import *
-from pages.SearchPage import *
-from core.globals import *
-from core.randomizer import *
-from selene.support.conditions import have
-import time
+from pages.Flixon.SigninPage import *
+from pages.Flixon.PageHeader import *
+from pages.Flixon.MyTVPage import *
+from pages.Flixon.OnDemandPage import *
+from pages.Flixon.RecordingsPage import *
+from pages.Flixon.SearchPage import *
 
 correct_email = "0000@0000.com"
 correct_password = "010101"

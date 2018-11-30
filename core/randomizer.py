@@ -18,9 +18,9 @@ class Randomizer(object):
     def page_of_text(min_size=50, max_size=100, chars=string.ascii_uppercase + string.ascii_lowercase + string.digits + string.punctuation + " " + "\n"):
         return ''.join(random.choice(chars) for _ in range(random.randint(min_size, max_size)))
 
-    def email(base_email='test+', base_domain ='gmail.com'):
+    def email(base_email='', base_domain ='gmail.com'):
         email = base_email
-        email += ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(6))
+        email += ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(6))
         email += '@'
         email += base_domain
         return email

@@ -26,8 +26,9 @@ class PageHeader(object):
         self.yes_on_logout_confirmation.click()
 
     def log_out(self):
+        self.sign_out_btn.should(be.visible).should(be.clickable)
         self.click_on_signout_btn()
-        self.yes_on_logout_confirmation
+        self.confirm_wish_to_logout()
 
     def confirm_wish_to_not_logout(self):
         self.no_on_logout_confirmation.click()

@@ -1,6 +1,6 @@
 import allure
-from pages.SigninPage import *
-from pages.PageHeader import *
+from pages.Flixon.SigninPage import *
+from pages.Flixon.PageHeader import *
 from core.globals import *
 from core.randomizer import *
 

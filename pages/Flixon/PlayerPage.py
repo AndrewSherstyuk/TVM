@@ -64,7 +64,7 @@ class PlayerPage(object):
         self.left_arrow_button = s('#leftarrowblock')
         self.right_arrow_button = s('#rightarrowblock')
 
-        self.player_window = s('#player')
+        self.player_window = s('#player-view')
 
     def initial_check_of_player_page(self):
         self.home_button.should(be.clickable)

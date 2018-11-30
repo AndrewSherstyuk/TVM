@@ -1,8 +1,7 @@
-from selene.api import *
-from pages.GuidePage import *
+from pages.Flixon.GuidePage import *
 from core.globals import *
 import time
-from pages.PageHeader import *
+from pages.Flixon.PageHeader import *
 
 
 class SigninPage(object):
@@ -42,18 +41,27 @@ class SigninPage(object):
     def check_that_signin_page_is_still_displayed(self):
         self.submit_login_btn.should(be.visible)
 
+
+
     def login_as_user(self):
+        # try:
+        #     browser.quit_driver()
+        # except:
+        #     pass
+
+        browser.open_url(BASE_URL)
+        time.sleep(5)
         try:
             PageHeader.log_out()
         except:
             pass
-        browser.open_url(BASE_URL)
         SigninPage().tap_on_sign_in()
         SigninPage().fill_in_the_username_field(self.correct_email)
         SigninPage().fill_in_the_password_field(self.correct_password)
         SigninPage().submit_login()
         GuidePage().day_selector.should(be.visible)
         time.sleep(5)
+
 
 
 
