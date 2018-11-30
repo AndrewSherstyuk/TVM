@@ -65,7 +65,7 @@ def test_oops_1_hour_popup_verification():
     with allure.step("Verify that the playback is up and running"):
         OneHourViewFlow().player_playstop_button.should(be.visible)
     with allure.step("Wait for 57.5 minutes"):
-        time.sleep(3450)
+        time.sleep(3400)
     with allure.step("Verify that the playback is up and running"):
         PlayerPage().player_window.click()
         OneHourViewFlow().player_playstop_button.should(be.visible)
