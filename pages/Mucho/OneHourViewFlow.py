@@ -62,6 +62,9 @@ class OneHourViewFlow(object):
         # "Oops... You have reached your time limit for today" popup
         self.oops_popup = s("#activate")
 
+        # 5 min popup
+        self.five_min_popup_close_button = s("#registration-modal > button.remodal-close.regModal")
+
 
 
 
