@@ -13,7 +13,7 @@ activationCode = "DDKE38"
 
 @allure.title("")
 @allure.description("""""")
-def test_oops_1_hour_popup_verification():
+def test_oops_1_hour_popup_verification_after_login():
     with allure.step("Open the Signin page of TVMucho"):
         browser.open_url(BASE_URL_2 + "watch-tv-free/activate/?showerror=true")
     with allure.step("Click on the Signin button on the popup"):

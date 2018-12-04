@@ -9,7 +9,7 @@ import time
 
 @allure.title("")
 @allure.description("""""")
-def test_oops_1_hour_popup_verification():
+def test_oops_1_hour_popup_verification_after_signup():
     with allure.step("Open the Signin page of TVMucho"):
         browser.open_url(BASE_URL_2 + "registration-1hour/")
     with allure.step("Click on the Log In With Email button on the popup"):
@@ -26,6 +26,7 @@ def test_oops_1_hour_popup_verification():
         time.sleep(3)
     with allure.step("Verify that the playback is in progress"):
         OneHourViewFlow().player_playstop_button.should(be.visible)
+        PlayerPage().volume_button.click()
     with allure.step("Wait for the Registration Modal popup"):
         counter = 0
         result = False

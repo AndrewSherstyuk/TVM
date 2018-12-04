@@ -21,7 +21,7 @@ def wait_for_the_registration_modal():
 
 @allure.title("5 min popup verification")
 @allure.description("""test test test test""")
-def test_oops_1_hour_popup_verification():
+def test_five_minutes_signup_popup_verification():
     with allure.step("Open the Signin page of TVMucho"):
         browser.open_url(BASE_URL_2 + "watch-tv-free")
         time.sleep(5)
