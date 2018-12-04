@@ -11,6 +11,9 @@ import time
 activationCode1 = "DDKE38"
 # email of the user = "brandnew1212@gmail.com"
 activationCode2 = "8C5B9H"
+# email of the user = "	pxhxll@gmail.com"
+activationCode4 = "EHGD6C"
+
 
 
 @allure.title("")
@@ -21,7 +24,7 @@ def test_oops_1_hour_popup_verification_after_login():
     with allure.step("Click on the Signin button on the popup"):
         SigninPage().sign_in_btn.click()
     with allure.step("Fill in the Code field with a valid Activation Code"):
-        SigninPage().activation_code_field.set_value(activationCode2)
+        SigninPage().activation_code_field.set_value(activationCode4)
     with allure.step("Click on the Sign In button on the popup"):
         SigninPage().activation_code_signin_button.click()
         time.sleep(15)
