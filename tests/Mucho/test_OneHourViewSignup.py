@@ -7,8 +7,9 @@ import time
 
 
 
-@allure.title("")
-@allure.description("""""")
+@allure.title("1 Hour free playback for a user that has just signed up")
+@allure.description("""The script creates a user, waits for 1 hour till 1-hour-per-day playback finishes, 
+    then checks the Oops popup""")
 def test_oops_1_hour_popup_verification_after_signup():
     with allure.step("Open the Signin page of TVMucho"):
         browser.open_url(BASE_URL_2 + "registration-1hour/")
