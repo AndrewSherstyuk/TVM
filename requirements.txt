@@ -14,6 +14,7 @@ more-itertools==4.3.0
 pluggy==0.8.0
 py==1.7.0
 pytest==3.9.2
+pytest-ordering==0.6
 requests==2.20.0
 selene==1.0.0a13
 selenium==2.53.1

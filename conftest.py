@@ -35,7 +35,7 @@ def pytest_exception_interact(node, call, report):
             attachment_type=AttachmentType.PNG)
     except:
         pass
-    browser.quit_driver()
+    # browser.quit_driver()
 
 
 """ session fixture. Prepares data for report generating at the end of session. """
@@ -69,6 +69,23 @@ def report(request):
         print("___REPORT DATA PREPARED___")
 
     request.addfinalizer(prepare_report)
+
+
+@pytest.fixture(scope="function", autouse=True)
+def quit_browser(request):
+
+    def end_of_test_quit():
+        try:
+            time.sleep(1)
+            from selene.browser import driver
+            browser.quit_driver()
+            print("____Browser quit____")
+        except:
+            print("___Browser quit not executed___")
+
+    request.addfinalizer(end_of_test_quit)
+
+
 
 
 

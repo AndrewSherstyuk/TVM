@@ -4,6 +4,8 @@ from pages.Flixon.PlayerPage import *
 from core.globals import *
 from core.randomizer import *
 import time
+import pytest_ordering
+import pytest
 
 
 def wait_for_the_registration_modal():
@@ -21,6 +23,7 @@ def wait_for_the_registration_modal():
 
 @allure.title("5 min popup verification")
 @allure.description("""test test test test""")
+@pytest.mark.order1
 def test_five_minutes_signup_popup_verification():
     with allure.step("Open the Signin page of TVMucho"):
         browser.open_url(BASE_URL_2 + "watch-tv-free")
