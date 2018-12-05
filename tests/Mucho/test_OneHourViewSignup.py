@@ -27,7 +27,7 @@ def test_oops_1_hour_popup_verification_after_signup():
         time.sleep(3)
     with allure.step("Verify that the playback is in progress"):
         OneHourViewFlow().player_playstop_button.should(be.visible)
-        # PlayerPage().volume_button.click()
+        PlayerPage().volume_button.click()
     with allure.step("Wait for the Registration Modal popup"):
         counter = 0
         result = False
