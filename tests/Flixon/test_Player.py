@@ -163,6 +163,199 @@ def test_player_closed_captions_button_verification():
             browser.quit_driver()
 
 
+@allure.title("Video Player: Help menu > Help form > Close button verification")
+@allure.description("""The test opens video player from the Guide page, taps
+on the Help button, selects Something Wrong... options and verifies the Close option on the Help form""")
+def test_player_help_somethingwrong_option_verification_1():
+        with allure.step("Sign In as an existing user"):
+            SigninPage().login_as_user()
+        with allure.step("Tap on the first channel in the list"):
+            GuidePage().first_channel_in_the_list.click()
+            time.sleep(2)
+        # with allure.step("Wait for the Player controls to disappear"):
+        #     time.sleep(9)
+        # with allure.step("Get the player controls visible"):
+        #     PlayerPage().player_window.double_click()
+        #     PlayerPage().player_window.hover()
+        with allure.step("Click on the Help button"):
+            PlayerPage().help_button.click()
+            time.sleep(1)
+        with allure.step("Verify that the Help panel gets shown"):
+            PlayerPage().help_panel.should(be.visible)
+            time.sleep(1)
+        with allure.step("Select 'Something Wrong...' option"):
+            PlayerPage().somethingwrong_option.click()
+            time.sleep(1)
+        with allure.step("Verify that the Help form gets opened"):
+            PlayerPage().help_form.should(be.visible)
+            time.sleep(1)
+        with allure.step("Click/tap on the Close button of the Help form"):
+            PlayerPage().help_form_close_button.click()
+        with allure.step("Verify that the Help form and the Player controls get hidden"):
+            PlayerPage().help_button.should(be.visible)
+            browser.quit_driver()
+
+
+@allure.title("Video Player: Help menu > Help form > Confirm button selected with empty Help form verification")
+@allure.description("""The test opens video player from the Guide page, taps
+on the Help button, selects Something Wrong... option, leaves the Help form empty and confirms, then verifies the tvm-popup""")
+def test_player_help_somethingwrong_option_verification_2():
+        with allure.step("Sign In as an existing user"):
+            SigninPage().login_as_user()
+        with allure.step("Tap on the first channel in the list"):
+            GuidePage().first_channel_in_the_list.click()
+            time.sleep(2)
+        # with allure.step("Wait for the Player controls to disappear"):
+        #     time.sleep(9)
+        # with allure.step("Get the player controls visible"):
+        #     PlayerPage().player_window.double_click()
+        #     PlayerPage().player_window.hover()
+        with allure.step("Click on the Help button"):
+            PlayerPage().help_button.click()
+            time.sleep(1)
+        with allure.step("Select 'Something Wrong...' option"):
+            PlayerPage().somethingwrong_option.click()
+            time.sleep(1)
+        with allure.step("Click/tap on the Submit button of the Help form"):
+            PlayerPage().help_form_submitreport_button.click()
+        with allure.step("Verify that the tvm-popup gets visible and looks as expected"):
+            PlayerPage().help_form_empty_report_notification.should(be.visible)
+            PlayerPage().help_form_empty_report_notification_title.should(be.visible)
+            PlayerPage().help_form_empty_report_notification_message.should(be.visible)
+        with allure.step("Confirm the empty Help form "):
+            PlayerPage().help_form_empty_report_notification_conrim_button.click()
+        with allure.step("Verify that the tvm-popup gets closed and the Help form is displayed again"):
+            PlayerPage().help_form.should(be.visible)
+            browser.quit_driver()
+
+
+@allure.title("Video Player: Help menu > Help form > Text into the input field > Confirm button selected verification")
+@allure.description("""The test opens video player from the Guide page, taps
+on the Help button, selects Something Wrong... option, adds some text into the input field on the Help form and confirms, then verifies the tvm-popup""")
+def test_player_help_somethingwrong_option_verification_3():
+        with allure.step("Sign In as an existing user"):
+            SigninPage().login_as_user()
+        with allure.step("Tap on the first channel in the list"):
+            GuidePage().first_channel_in_the_list.click()
+            time.sleep(2)
+        # with allure.step("Wait for the Player controls to disappear"):
+        #     time.sleep(9)
+        # with allure.step("Get the player controls visible"):
+        #     PlayerPage().player_window.double_click()
+        #     PlayerPage().player_window.hover()
+        with allure.step("Click on the Help button"):
+            PlayerPage().help_button.click()
+            time.sleep(1)
+        with allure.step("Select 'Something Wrong...' option"):
+            PlayerPage().somethingwrong_option.click()
+            time.sleep(1)
+        with allure.step("Add the test text into the Report Message field"):
+            PlayerPage().help_form_input_field.set_value("Test report, please disregard. Please contact Andrey Sherstyuk, TVM QA Engineer for more information.")
+        with allure.step("Click/tap on the Close button of the Help form"):
+            PlayerPage().help_form_submitreport_button.click()
+            time.sleep(15)
+        with allure.step("Verify that the Report Received notification is displayed"):
+            PlayerPage().help_form_report_received_notification.should(be.visible)
+        with allure.step("Click on the Continue button on the Report Received notification"):
+            PlayerPage().help_form_report_received_notification_confirm_button.click()
+            time.sleep(5)
+        with allure.step("Verify that the video playback is displayed"):
+            PlayerPage().help_button.should_not(be.visible)
+            PlayerPage().help_form_report_received_notification.should_not(be.visible)
+            browser.quit_driver()
+
+
+@allure.title("Video Player: Help menu > Show Playback Stats verification")
+@allure.description("""The test opens video player from the Guide page, taps
+on the Help button, selects Show Playback Stats option, and verifies that the Playback Stats popup shows up""")
+def test_player_help_somethingwrong_option_verification_4():
+        with allure.step("Sign In as an existing user"):
+            SigninPage().login_as_user()
+        with allure.step("Tap on the first channel in the list"):
+            GuidePage().first_channel_in_the_list.click()
+            time.sleep(2)
+        # with allure.step("Wait for the Player controls to disappear"):
+        #     time.sleep(9)
+        # with allure.step("Get the player controls visible"):
+        #     PlayerPage().player_window.double_click()
+        #     PlayerPage().player_window.hover()
+        with allure.step("Click on the Help button"):
+            PlayerPage().help_button.click()
+            time.sleep(1)
+        with allure.step("Select Show Playback Stats option"):
+            PlayerPage().showplaybackstats_option.click()
+            time.sleep(1)
+        with allure.step("Verify that the Playback Stats popup shows up"):
+            PlayerPage().playbackstats_popup.should(be.visible)
+            time.sleep(3)
+        with allure.step("Close the Playback Stats popup"):
+            PlayerPage().playbackstats_popup_close_button.click()
+        with allure.step("Verify that the Playback Stats popup gets closed"):
+            PlayerPage().playstop_stop_button.should(be.visible)
+            time.sleep(7)
+            PlayerPage().playstop_stop_button.should_not(be.visible)
+            browser.quit_driver()
+
+
+@allure.title("Video Player: Help menu > Reload Stream option verification")
+@allure.description("""The test opens video player from the Guide page, taps
+on the Help button, selects Show Playback Stats option, and verifies that the Playback Stats popup shows up""")
+def test_player_help_reloadstream_option_verification():
+        with allure.step("Sign In as an existing user"):
+            SigninPage().login_as_user()
+        with allure.step("Tap on the first channel in the list"):
+            GuidePage().first_channel_in_the_list.click()
+            time.sleep(2)
+        # with allure.step("Wait for the Player controls to disappear"):
+        #     time.sleep(9)
+        # with allure.step("Get the player controls visible"):
+        #     PlayerPage().player_window.double_click()
+        #     PlayerPage().player_window.hover()
+        with allure.step("Click on the Help button"):
+            PlayerPage().help_button.click()
+            time.sleep(1)
+        with allure.step("Select Show Playback Stats option"):
+            PlayerPage().showplaybackstats_option.click()
+            time.sleep(1)
+        with allure.step("Verify that the Playback Stats popup shows up"):
+            PlayerPage().playbackstats_popup.should(be.visible)
+            time.sleep(3)
+        with allure.step("Close the Playback Stats popup"):
+            PlayerPage().playbackstats_popup_close_button.click()
+        with allure.step("Verify that the Playback Stats popup gets closed"):
+            PlayerPage().playstop_stop_button.should(be.visible)
+            time.sleep(7)
+            PlayerPage().playstop_stop_button.should_not(be.visible)
+            browser.quit_driver()
+
+
+@allure.title("Video Player: Help menu > Close option verification")
+@allure.description("""The test opens video player from the Guide page, taps
+on the Help button, selects Close option, and verifies that the Help panel disappears""")
+def test_player_help_close_option_verification():
+        with allure.step("Sign In as an existing user"):
+            SigninPage().login_as_user()
+        with allure.step("Tap on the first channel in the list"):
+            GuidePage().first_channel_in_the_list.click()
+            time.sleep(2)
+        # with allure.step("Wait for the Player controls to disappear"):
+        #     time.sleep(9)
+        # with allure.step("Get the player controls visible"):
+        #     PlayerPage().player_window.double_click()
+        #     PlayerPage().player_window.hover()
+        with allure.step("Click on the Help button"):
+            PlayerPage().help_button.click()
+            time.sleep(1)
+        with allure.step("Select Show Playback Stats option"):
+            PlayerPage().close_option.click()
+            time.sleep(1)
+        with allure.step("Verify that the Playback of the video shows up"):
+            PlayerPage().playstop_stop_button.should(be.visible)
+            time.sleep(7)
+            PlayerPage().playstop_stop_button.should_not(be.visible)
+            browser.quit_driver()
+
+
 @allure.title("Video Player: Volume button verification")
 @allure.description("""The test opens video player from the Guide page, taps
 on the Volume button, TBD               """)
