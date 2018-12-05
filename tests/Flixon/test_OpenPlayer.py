@@ -6,6 +6,7 @@ from pages.Flixon.OnDemandPage import *
 from pages.Flixon.CinemaPage import *
 from pages.Flixon.RecordingsPage import *
 from pages.Flixon.SearchPage import *
+from selene.conditions import *
 
 
 @allure.title("Video Player: Open from My TV page + Initial state of the player verification")
@@ -31,20 +32,25 @@ def test_player_from_mytv_initial_state_verification():
 @allure.title("Video Player: Open from On Now page + Initial state of the player verification")
 @allure.description("""The test opens video player from the On Now page and verifies that the player
 contains all the controls and those are up and running""")
-def test_player_from_onnow_initial_state_verification():
+def test_player_from_on_now_initial_state_verification():
     with allure.step("Sign In as an existing user"):
         SigninPage().login_as_user()
     with allure.step("Navigate to On Now page"):
         PageHeader().on_now.click()
     with allure.step("Open the 1st event on On Now page"):
         OnNowPage().on_now_1st_event.click()
-        time.sleep(2)
+        time.sleep(5)
     # with allure.step("Get the player controls visible"):
     #     PlayerPage().player_window.double_click()
     #     PlayerPage().player_window.hover()
     with allure.step("Verify the initial state of the page"):
         PlayerPage().initial_check_of_player_page_ongoing_event()
-        time.sleep(1)
+    with allure.step("Press on the Back button"):
+        browser.execute_script("history.back(-1)")
+        time.sleep(5)
+    with allure.step("Verify that you're on the On Now page"):
+        OnNowPage().channels_table.should(be.visible)
+        UrlContaining("/#live-channels")
         browser.quit_driver()
 
 
@@ -61,13 +67,18 @@ def test_player_from_ondemand_initial_state_verification():
         time.sleep(1)
     with allure.step("Click on the Play button on the custom banner opened for the 1st event on the page"):
         OnDemandPage().ondemand_custom_banner_play_button.click()
-        time.sleep(2)
+        time.sleep(5)
     # with allure.step("Get the player controls visible"):
     #     PlayerPage().player_window.double_click()
     #     PlayerPage().player_window.hover()
     with allure.step("Verify the initial state of the page"):
         PlayerPage().initial_check_of_player_page_recorded_event()
-        time.sleep(1)
+    with allure.step("Press on the Back button"):
+        browser.execute_script("history.back(-1)")
+        time.sleep(5)
+    with allure.step("Verify that you're on the On Demand page"):
+        OnDemandPage().categories_view.should(be.visible)
+        UrlContaining("/#on-demand")
         browser.quit_driver()
 
 
@@ -84,12 +95,17 @@ def test_player_from_Guide_initial_state_verification():
         time.sleep(1)
     with allure.step("Click on the Play button on the custom banner opened for the 1st event on the page"):
         CinemaPage().cinema_page_custom_banner_play_button.click()
-        time.sleep(2)
+        time.sleep(5)
     # with allure.step("Get the player controls visible"):
     #     PlayerPage().player_window.double_click()
     #     PlayerPage().player_window.hover()
     with allure.step("Verify the initial state of a recorded event"):
         PlayerPage().initial_check_of_player_page_recorded_event()
+    with allure.step("Press on the Back button"):
+        browser.execute_script("history.back(-1)")
+        time.sleep(5)
+    with allure.step("Verify that you're on the Cinema page again"):
+        UrlContaining("/#cinema")
         time.sleep(1)
         browser.quit_driver()
 
@@ -103,12 +119,18 @@ def test_player_from_guide_initial_state_verification_1():
         time.sleep(2)
     with allure.step("Tap on the first channel in the list"):
         GuidePage().first_channel_in_the_list.click()
-        time.sleep(2)
+        time.sleep(5)
         # with allure.step("Get the player controls visible"):
         #     PlayerPage().player_window.double_click()
         #     PlayerPage().player_window.hover()
     with allure.step("Verify the initial state of the page"):
         PlayerPage().initial_check_of_player_page_ongoing_event()
+    with allure.step("Press on the Back button"):
+        browser.execute_script("history.back(-1)")
+        time.sleep(5)
+    with allure.step("Verify that you're on the Guide page again"):
+        GuidePage().day_selector.should(be.visible)
+        UrlContaining("/#guide")
         time.sleep(1)
         browser.quit_driver()
 
@@ -128,6 +150,12 @@ def test_player_from_guide_initial_state_verification_2():
     #     PlayerPage().player_window.hover()
     with allure.step("Verify the initial state of the page"):
         PlayerPage().initial_check_of_player_page_ongoing_event()
+    with allure.step("Press on the Back button"):
+        browser.execute_script("history.back(-1)")
+        time.sleep(5)
+    with allure.step("Verify that you're on the Guide page again"):
+        GuidePage().day_selector.should(be.visible)
+        UrlContaining("/#guide")
         time.sleep(1)
         browser.quit_driver()
 
@@ -148,6 +176,12 @@ def test_player_from_recordings_initial_state_verification():
     #     PlayerPage().player_window.hover()
     with allure.step("Verify the initial state of a recorded event"):
         PlayerPage().initial_check_of_player_page_recorded_event()
+    with allure.step("Press on the Back button"):
+        browser.execute_script("history.back(-1)")
+        time.sleep(5)
+    with allure.step("Verify that you're on the Recordings page again"):
+
+        UrlContaining("/#recordings")
         time.sleep(1)
         browser.quit_driver()
 
@@ -179,5 +213,11 @@ def test_player_from_search_initial_state_verification():
     #     PlayerPage().player_window.hover()
     with allure.step("Verify the initial state of a recorded event"):
         PlayerPage().initial_check_of_player_page_recorded_event()
+    with allure.step("Press on the Back button"):
+        browser.execute_script("history.back(-1)")
+        time.sleep(5)
+    with allure.step("Verify that you're on the Search page again"):
+        SearchPage().search_input_field.should(be.visible)
+        UrlContaining("/#search")
         time.sleep(1)
         browser.quit_driver()

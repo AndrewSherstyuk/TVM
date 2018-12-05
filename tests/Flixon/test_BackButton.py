@@ -11,16 +11,33 @@ from selene.conditions import *
 
 
 @allure.title("Back button: If clicked right after the login, then it closes the site")
-@allure.description("")
-
+@allure.description("The test opens the sites, logs in and clicks the Back button as soon as "
+"gets to the Guide page right after having got logged in")
+def test_back_button_right_after_login():
+    with allure.step("Sign In as an existing user"):
+        SigninPage().login_as_user()
+        time.sleep(5)
+        GuidePage().day_selector.should(be.visible)
+        UrlContaining("/#guide")
+    with allure.step("Press on the Back button"):
+        browser.execute_script("history.back(-1)")
+        time.sleep(5)
+    with allure.step("Verify that you're on the Guide screen"):
+        GuidePage().day_selector.should(be.visible)
+        UrlContaining("/#guide")
 
 @allure.title("Main Navigation: Back button functioning verification")
 @allure.description("""The test opens the site and moves through all the tab of the main navigation.
 Then it moves back step by step and verifies that the tabs are getting opened in inverted order""")
 def test_back_button_functioning_through_main_nav():
+
+    # Move forward
+
     with allure.step("Sign In as an existing user"):
         SigninPage().login_as_user()
-
+        time.sleep(5)
+        GuidePage().day_selector.should(be.visible)
+        UrlContaining("/#guide")
     with allure.step("Move to My TV page and verify you're there"):
         PageHeader().my_tv.click()
         time.sleep(5)
@@ -56,6 +73,8 @@ def test_back_button_functioning_through_main_nav():
         time.sleep(5)
         GuidePage().day_selector.should(be.visible)
         UrlContaining("/#guide")
+
+        # Move back
 
     with allure.step("Make one step back to the Search page and verify you're there"):
         browser.execute_script("history.back(-1)")
