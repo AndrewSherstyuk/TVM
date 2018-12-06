@@ -24,7 +24,7 @@ def test_oops_1_hour_popup_verification_after_login():
     with allure.step("Click on the Signin button on the popup"):
         SigninPage().sign_in_btn.click()
     with allure.step("Fill in the Code field with a valid Activation Code"):
-        SigninPage().activation_code_field.set_value(activationCode4)
+        SigninPage().activation_code_field.set_value(activationCode2)
     with allure.step("Click on the Sign In button on the popup"):
         SigninPage().activation_code_signin_button.click()
         time.sleep(15)

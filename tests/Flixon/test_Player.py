@@ -3,8 +3,6 @@ from pages.Flixon.PlayerPage import *
 from pages.Flixon.SigninPage import *
 
 
-
-
 @allure.title("Video Player: Initial state of the page verification")
 @allure.description("""The test opens video player from the Guide page, taps
 on the Home button and verifies that the Guide screen opens""")
@@ -32,6 +30,8 @@ def test_player_home_button_verification():
     with allure.step("Tap on the first channel in the list"):
         GuidePage().first_channel_in_the_list.click()
         time.sleep(9)
+        s("#cancel1").click()
+        time.sleep(3)
     with allure.step("Get the player controls visible"):
         PlayerPage().player_window.double_click()
         PlayerPage().player_window.hover()
@@ -52,6 +52,8 @@ def test_player_channels_button_verification():
     with allure.step("Tap on the first channel in the list"):
         GuidePage().first_channel_in_the_list.click()
         time.sleep(9)
+        s("#cancel1").click()
+        time.sleep(3)
     with allure.step("Get the player controls visible"):
         PlayerPage().player_window.double_click()
         PlayerPage().player_window.hover()
@@ -83,6 +85,8 @@ def test_player_favourite_button_verification():
         PlayerPage().favorite_button.should(have.attribute('class', 'fa fa-heart-o'))
     with allure.step("Wait for the Player controls to disappear"):
         time.sleep(9)
+        s("#cancel1").click()
+        time.sleep(3)
     with allure.step("Get the player controls visible"):
         PlayerPage().player_window.double_click()
         PlayerPage().player_window.hover()
@@ -107,23 +111,19 @@ def test_player_playstop_button_verification():
             SigninPage().login_as_user()
         with allure.step("Tap on the first channel in the list"):
             GuidePage().first_channel_in_the_list.click()
-        with allure.step("Verify that the Playstop button is in the Stop state"):
+            time.sleep(9)
+            s("#cancel1").click()
+            time.sleep(3)
+        with allure.step("Get the player controls visible"):
+            PlayerPage().player_window.double_click()
+            PlayerPage().player_window.hover()
+        with allure.step("Verify that the Playstop button is still in the stop state"):
             PlayerPage().playstop_stop_button.should(be.visible)
-            time.sleep(2)
-        # with allure.step("Wait for the Player controls to disappear"):
-        #     time.sleep(9)
-        # with allure.step("Get the player controls visible"):
-        #     PlayerPage().player_window.double_click()
-        #     PlayerPage().player_window.hover()
-        # with allure.step("Verify that the Playstop button is still in the stop state"):
-        #     PlayerPage().playstop_stop_button.should(be.visible)
         with allure.step("Click on the Playstop button"):
             PlayerPage().playstop_stop_button.click()
+            time.sleep(1)
         with allure.step("Verify that the Playstop button is in the Play state"):
             PlayerPage().playstop_play_button.should(be.visible)
-        with allure.step("Click on the Playstop button again to verify that it's in Stop state again"):
-            PlayerPage().playstop_play_button.click()
-            PlayerPage().playstop_stop_button.should(be.visible)
             time.sleep(1)
             browser.quit_driver()
 
@@ -136,12 +136,14 @@ def test_player_closed_captions_button_verification():
             SigninPage().login_as_user()
         with allure.step("Tap on the first channel in the list"):
             GuidePage().first_channel_in_the_list.click()
-            time.sleep(2)
-        # with allure.step("Wait for the Player controls to disappear"):
-        #     time.sleep(9)
-        # with allure.step("Get the player controls visible"):
-        #     PlayerPage().player_window.double_click()
-        #     PlayerPage().player_window.hover()
+            time.sleep(9)
+            s("#cancel1").click()
+            time.sleep(3)
+        with allure.step("Wait for the Player controls to disappear"):
+            time.sleep(3)
+        with allure.step("Get the player controls visible"):
+            PlayerPage().player_window.double_click()
+            PlayerPage().player_window.hover()
         with allure.step("Click on the CC button"):
             PlayerPage().cc_menu_button.click()
         with allure.step("Select the English option from the CC menu"):
@@ -171,12 +173,14 @@ def test_player_help_somethingwrong_option_verification_1():
             SigninPage().login_as_user()
         with allure.step("Tap on the first channel in the list"):
             GuidePage().first_channel_in_the_list.click()
-            time.sleep(2)
-        # with allure.step("Wait for the Player controls to disappear"):
-        #     time.sleep(9)
-        # with allure.step("Get the player controls visible"):
-        #     PlayerPage().player_window.double_click()
-        #     PlayerPage().player_window.hover()
+            time.sleep(9)
+            s("#cancel1").click()
+            time.sleep(3)
+        with allure.step("Wait for the Player controls to disappear"):
+            time.sleep(3)
+        with allure.step("Get the player controls visible"):
+            PlayerPage().player_window.double_click()
+            PlayerPage().player_window.hover()
         with allure.step("Click on the Help button"):
             PlayerPage().help_button.click()
             time.sleep(1)
@@ -204,12 +208,14 @@ def test_player_help_somethingwrong_option_verification_2():
             SigninPage().login_as_user()
         with allure.step("Tap on the first channel in the list"):
             GuidePage().first_channel_in_the_list.click()
-            time.sleep(2)
-        # with allure.step("Wait for the Player controls to disappear"):
-        #     time.sleep(9)
-        # with allure.step("Get the player controls visible"):
-        #     PlayerPage().player_window.double_click()
-        #     PlayerPage().player_window.hover()
+            time.sleep(9)
+            s("#cancel1").click()
+            time.sleep(3)
+        with allure.step("Wait for the Player controls to disappear"):
+            time.sleep(3)
+        with allure.step("Get the player controls visible"):
+            PlayerPage().player_window.double_click()
+            PlayerPage().player_window.hover()
         with allure.step("Click on the Help button"):
             PlayerPage().help_button.click()
             time.sleep(1)
@@ -237,12 +243,14 @@ def test_player_help_somethingwrong_option_verification_3():
             SigninPage().login_as_user()
         with allure.step("Tap on the first channel in the list"):
             GuidePage().first_channel_in_the_list.click()
-            time.sleep(2)
-        # with allure.step("Wait for the Player controls to disappear"):
-        #     time.sleep(9)
-        # with allure.step("Get the player controls visible"):
-        #     PlayerPage().player_window.double_click()
-        #     PlayerPage().player_window.hover()
+            time.sleep(9)
+            s("#cancel1").click()
+            time.sleep(3)
+        with allure.step("Wait for the Player controls to disappear"):
+            time.sleep(3)
+        with allure.step("Get the player controls visible"):
+            PlayerPage().player_window.double_click()
+            PlayerPage().player_window.hover()
         with allure.step("Click on the Help button"):
             PlayerPage().help_button.click()
             time.sleep(1)
@@ -273,12 +281,14 @@ def test_player_help_somethingwrong_option_verification_4():
             SigninPage().login_as_user()
         with allure.step("Tap on the first channel in the list"):
             GuidePage().first_channel_in_the_list.click()
-            time.sleep(2)
-        # with allure.step("Wait for the Player controls to disappear"):
-        #     time.sleep(9)
-        # with allure.step("Get the player controls visible"):
-        #     PlayerPage().player_window.double_click()
-        #     PlayerPage().player_window.hover()
+            time.sleep(9)
+            s("#cancel1").click()
+            time.sleep(3)
+        with allure.step("Wait for the Player controls to disappear"):
+            time.sleep(3)
+        with allure.step("Get the player controls visible"):
+            PlayerPage().player_window.double_click()
+            PlayerPage().player_window.hover()
         with allure.step("Click on the Help button"):
             PlayerPage().help_button.click()
             time.sleep(1)
@@ -305,12 +315,14 @@ def test_player_help_reloadstream_option_verification():
             SigninPage().login_as_user()
         with allure.step("Tap on the first channel in the list"):
             GuidePage().first_channel_in_the_list.click()
-            time.sleep(2)
-        # with allure.step("Wait for the Player controls to disappear"):
-        #     time.sleep(9)
-        # with allure.step("Get the player controls visible"):
-        #     PlayerPage().player_window.double_click()
-        #     PlayerPage().player_window.hover()
+            time.sleep(9)
+            s("#cancel1").click()
+            time.sleep(3)
+        with allure.step("Wait for the Player controls to disappear"):
+            time.sleep(3)
+        with allure.step("Get the player controls visible"):
+            PlayerPage().player_window.double_click()
+            PlayerPage().player_window.hover()
         with allure.step("Click on the Help button"):
             PlayerPage().help_button.click()
             time.sleep(1)
@@ -337,12 +349,14 @@ def test_player_help_close_option_verification():
             SigninPage().login_as_user()
         with allure.step("Tap on the first channel in the list"):
             GuidePage().first_channel_in_the_list.click()
-            time.sleep(2)
-        # with allure.step("Wait for the Player controls to disappear"):
-        #     time.sleep(9)
-        # with allure.step("Get the player controls visible"):
-        #     PlayerPage().player_window.double_click()
-        #     PlayerPage().player_window.hover()
+            time.sleep(9)
+            s("#cancel1").click()
+            time.sleep(3)
+        with allure.step("Wait for the Player controls to disappear"):
+            time.sleep(3)
+        with allure.step("Get the player controls visible"):
+            PlayerPage().player_window.double_click()
+            PlayerPage().player_window.hover()
         with allure.step("Click on the Help button"):
             PlayerPage().help_button.click()
             time.sleep(1)
@@ -364,12 +378,14 @@ def test_player_volume_button_verification():
             SigninPage().login_as_user()
         with allure.step("Tap on the first channel in the list"):
             GuidePage().first_channel_in_the_list.click()
-            time.sleep(2)
-        # with allure.step("Wait for the Player controls to disappear"):
-        #     time.sleep(9)
-        # with allure.step("Get the player controls visible"):
-        #     PlayerPage().player_window.double_click()
-        #     PlayerPage().player_window.hover()
+            time.sleep(9)
+            s("#cancel1").click()
+            time.sleep(3)
+        with allure.step("Wait for the Player controls to disappear"):
+            time.sleep(3)
+        with allure.step("Get the player controls visible"):
+            PlayerPage().player_window.double_click()
+            PlayerPage().player_window.hover()
         with allure.step("Verify that the Volume button is in the Up state"):
             PlayerPage().volume_button.should(have.attribute("class", "fa fa-volume-up"))
             time.sleep(1)
@@ -399,18 +415,18 @@ def test_player_volume_slider_verification():
 
 @allure.title("Video Player: Full Screen button verification")
 @allure.description("""The test opens video player from the Guide page, taps
-on the Full Screen button, TBD               """)
-def test_player_fullscreen_button_verification():
+on the Full Screen button, then taps on it again and verifies that the playback is still on""")
+def test_player_full_screen_button_verification():
         with allure.step("Sign In as an existing user"):
             SigninPage().login_as_user()
         with allure.step("Tap on the first channel in the list"):
             GuidePage().first_channel_in_the_list.click()
-            time.sleep(2)
-        # with allure.step("Wait for the Player controls to disappear"):
-        #     time.sleep(9)
-        # with allure.step("Get the player controls visible"):
-        #     PlayerPage().player_window.double_click()
-        #     PlayerPage().player_window.hover()
+            time.sleep(9)
+            s("#cancel1").click()
+            time.sleep(3)
+        with allure.step("Get the player controls visible"):
+            PlayerPage().player_window.double_click()
+            PlayerPage().player_window.hover()
         with allure.step("Click on the Full Screen button"):
             PlayerPage().fullscreen_button.click()
             time.sleep(1)
