@@ -86,8 +86,8 @@ class PlayerPage(object):
         self.forward_30_sec_button.should_not(be.visible)
         self.playstop_stop_button.should(be.visible).should(be.visible)
         self.cc_menu_button.should(be.visible).should(be.clickable)
-        self.help_button.should(be.visible).should(be.clickable)
-        self.volume_button.should(be.visible).should(be.clickable)
+        self.help_button.should(be.clickable)
+        self.volume_button.should(be.clickable)
         self.fullscreen_button.should(be.visible).should(be.clickable)
 
     def initial_check_of_player_page_recorded_event(self):

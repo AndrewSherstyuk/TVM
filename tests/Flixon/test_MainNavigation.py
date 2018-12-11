@@ -75,8 +75,8 @@ def test_navigation_to_on_demand():
     with allure.step("Check that page is openned"):
         OnDemandPage().categories_view.should(be.visible).should(be.clickable)
     with allure.step("Check active button + css styles"):
-        assert PageHeader().guide.get_attribute("class") != "tab-toggle active"
-        assert PageHeader().on_demand.get_attribute("class") == "tab-toggle active"
+        assert PageHeader().guide.get_attribute("class") != "tab-toggle dvr-content active"
+        assert PageHeader().on_demand.get_attribute("class") == "tab-toggle dvr-content active"
         assert s(".tab-toggle.active").text == "ON DEMAND"
         browser.quit_driver()
 

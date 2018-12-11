@@ -8,6 +8,7 @@ from pages.Flixon.RecordingsPage import *
 from pages.Flixon.SearchPage import *
 from selene.conditions import *
 from pages.Mucho.OneHourViewFlow import *
+from core.globals import *
 
 
 @allure.title("Video Player: Open from My TV page + Initial state of the player verification")
@@ -16,13 +17,13 @@ from pages.Mucho.OneHourViewFlow import *
 def test_player_from_mytv_initial_state_verification():
     with allure.step("Sign In as an existing user"):
         SigninPage().login_as_user()
-    with allure.step("Click Yes on the Personal Video Recording popup"):
-        time.sleep(10)
-        OneHourViewFlow().personal_video_recording_confirmation_button.click()
-        time.sleep(2)
-    with allure.step("Click OK on the Hooray popup"):
-        OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
-        time.sleep(2)
+    # with allure.step("Click Yes on the Personal Video Recording popup"):
+    #     time.sleep(10)
+    #     OneHourViewFlow().personal_video_recording_confirmation_button.click()
+    #     time.sleep(2)
+    # with allure.step("Click OK on the Hooray popup"):
+    #     OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
+    #     time.sleep(2)
     with allure.step("Navigate to On Now page"):
         PageHeader().my_tv.click()
     with allure.step("Open the 1st event on On Now page"):
@@ -43,13 +44,13 @@ contains all the controls and those are up and running""")
 def test_player_from_on_now_initial_state_verification():
     with allure.step("Sign In as an existing user"):
         SigninPage().login_as_user()
-    with allure.step("Click Yes on the Personal Video Recording popup"):
-        time.sleep(10)
-        OneHourViewFlow().personal_video_recording_confirmation_button.click()
-        time.sleep(2)
-    with allure.step("Click OK on the Hooray popup"):
-        OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
-        time.sleep(2)
+    # with allure.step("Click Yes on the Personal Video Recording popup"):
+    #     time.sleep(10)
+    #     OneHourViewFlow().personal_video_recording_confirmation_button.click()
+    #     time.sleep(2)
+    # with allure.step("Click OK on the Hooray popup"):
+    #     OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
+    #     time.sleep(2)
     with allure.step("Navigate to On Now page"):
         PageHeader().on_now.click()
     with allure.step("Open the 1st event on On Now page"):
@@ -72,16 +73,16 @@ def test_player_from_on_now_initial_state_verification():
 @allure.title("Video Player: Open from On Demand page + Initial state of the player verification")
 @allure.description("""The test opens video player from the On Demand page and verifies that the player
 contains all the controls and those are up and running""")
-def test_player_from_ondemand_initial_state_verification():
+def test_player_from_on_demand_initial_state_verification():
     with allure.step("Sign In as an existing user"):
         SigninPage().login_as_user()
-    with allure.step("Click Yes on the Personal Video Recording popup"):
-        time.sleep(10)
-        OneHourViewFlow().personal_video_recording_confirmation_button.click()
-        time.sleep(2)
-    with allure.step("Click OK on the Hooray popup"):
-        OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
-        time.sleep(2)
+    # with allure.step("Click Yes on the Personal Video Recording popup"):
+    #     time.sleep(10)
+    #     OneHourViewFlow().personal_video_recording_confirmation_button.click()
+    #     time.sleep(2)
+    # with allure.step("Click OK on the Hooray popup"):
+    #     OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
+    #     time.sleep(2)
     with allure.step("Navigate to On Now page"):
         PageHeader().on_demand.click()
     with allure.step("Open the banner for the 1st event on On Now page"):
@@ -110,13 +111,13 @@ contains all the controls and those are up and running, recorded stream""")
 def test_player_from_Guide_initial_state_verification():
     with allure.step("Sign In as an existing user"):
         SigninPage().login_as_user()
-    with allure.step("Click Yes on the Personal Video Recording popup"):
-        time.sleep(10)
-        OneHourViewFlow().personal_video_recording_confirmation_button.click()
-        time.sleep(2)
-    with allure.step("Click OK on the Hooray popup"):
-        OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
-        time.sleep(2)
+    # with allure.step("Click Yes on the Personal Video Recording popup"):
+    #     time.sleep(10)
+    #     OneHourViewFlow().personal_video_recording_confirmation_button.click()
+    #     time.sleep(2)
+    # with allure.step("Click OK on the Hooray popup"):
+    #     OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
+    #     time.sleep(2)
     with allure.step("Navigate to Cinema page"):
         PageHeader().cinema.click()
     with allure.step("Open the banner for the 1st event on Cinema page"):
@@ -145,13 +146,13 @@ contains all the controls and those are up and running, ongoing player""")
 def test_player_from_guide_initial_state_verification_1():
     with allure.step("Sign In as an existing user"):
         SigninPage().login_as_user()
-    with allure.step("Click Yes on the Personal Video Recording popup"):
-        time.sleep(10)
-        OneHourViewFlow().personal_video_recording_confirmation_button.click()
-        time.sleep(2)
-    with allure.step("Click OK on the Hooray popup"):
-        OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
-        time.sleep(2)
+    # with allure.step("Click Yes on the Personal Video Recording popup"):
+    #     time.sleep(10)
+    #     OneHourViewFlow().personal_video_recording_confirmation_button.click()
+    #     time.sleep(2)
+    # with allure.step("Click OK on the Hooray popup"):
+    #     OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
+    #     time.sleep(2)
     with allure.step("Tap on the first channel in the list"):
         GuidePage().first_channel_in_the_list.click()
         time.sleep(2)
@@ -177,13 +178,13 @@ contains all the controls and those are up and running, ongoing player""")
 def test_player_from_guide_initial_state_verification_2():
     with allure.step("Sign In as an existing user"):
         SigninPage().login_as_user()
-    with allure.step("Click Yes on the Personal Video Recording popup"):
-        time.sleep(10)
-        OneHourViewFlow().personal_video_recording_confirmation_button.click()
-        time.sleep(2)
-    with allure.step("Click OK on the Hooray popup"):
-        OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
-        time.sleep(2)
+    # with allure.step("Click Yes on the Personal Video Recording popup"):
+    #     time.sleep(10)
+    #     OneHourViewFlow().personal_video_recording_confirmation_button.click()
+    #     time.sleep(2)
+    # with allure.step("Click OK on the Hooray popup"):
+    #     OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
+    #     time.sleep(2)
     with allure.step("Tap on the first channel in the list"):
         GuidePage().first_ongoing_program_in_epg.click()
         GuidePage().first_ongoing_program_in_epg_custom_banner_arrow.click()
@@ -208,13 +209,13 @@ contains all the controls and those are up and running, recorded stream""")
 def test_player_from_recordings_initial_state_verification():
     with allure.step("Sign In as an existing user"):
         SigninPage().login_as_user()
-    with allure.step("Click Yes on the Personal Video Recording popup"):
-        time.sleep(10)
-        OneHourViewFlow().personal_video_recording_confirmation_button.click()
-        time.sleep(2)
-    with allure.step("Click OK on the Hooray popup"):
-        OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
-        time.sleep(2)
+    # with allure.step("Click Yes on the Personal Video Recording popup"):
+    #     time.sleep(10)
+    #     OneHourViewFlow().personal_video_recording_confirmation_button.click()
+    #     time.sleep(2)
+    # with allure.step("Click OK on the Hooray popup"):
+    #     OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
+    #     time.sleep(2)
     with allure.step("Navigate to Recordings page"):
         PageHeader().recordings.click()
     with allure.step("Open the banner for the 1st event on Cinema page"):
@@ -241,13 +242,13 @@ contains all the controls and those are up and running, recorded stream""")
 def test_player_from_search_initial_state_verification():
     with allure.step("Sign In as an existing user"):
         SigninPage().login_as_user()
-    with allure.step("Click Yes on the Personal Video Recording popup"):
-        time.sleep(10)
-        OneHourViewFlow().personal_video_recording_confirmation_button.click()
-        time.sleep(2)
-    with allure.step("Click OK on the Hooray popup"):
-        OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
-        time.sleep(2)
+    # with allure.step("Click Yes on the Personal Video Recording popup"):
+    #     time.sleep(10)
+    #     OneHourViewFlow().personal_video_recording_confirmation_button.click()
+    #     time.sleep(2)
+    # with allure.step("Click OK on the Hooray popup"):
+    #     OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
+    #     time.sleep(2)
     with allure.step("Navigate to Search page"):
         PageHeader().search.click()
         time.sleep(1)

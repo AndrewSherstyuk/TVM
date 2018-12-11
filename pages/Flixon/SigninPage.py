@@ -2,6 +2,8 @@ from pages.Flixon.GuidePage import *
 from core.globals import *
 import time
 from pages.Flixon.PageHeader import *
+from core.globals import *
+from pages.Mucho.OneHourViewFlow import *
 
 
 class SigninPage(object):
@@ -44,14 +46,11 @@ class SigninPage(object):
     def check_that_signin_page_is_still_displayed(self):
         self.submit_login_btn.should(be.visible)
 
-
-
     def login_as_user(self):
         # try:
         #     browser.quit_driver()
         # except:
         #     pass
-
         browser.open_url(BASE_URL)
         time.sleep(5)
         try:
@@ -62,8 +61,13 @@ class SigninPage(object):
         SigninPage().fill_in_the_username_field(self.correct_email)
         SigninPage().fill_in_the_password_field(self.correct_password)
         SigninPage().submit_login()
+        time.sleep(10)
+        OneHourViewFlow().personal_video_recording_confirmation_button.click()
+        time.sleep(2)
+        OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
+        time.sleep(2)
         GuidePage().day_selector.should(be.visible)
-        time.sleep(5)
+
 
 
 
