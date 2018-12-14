@@ -26,6 +26,9 @@ class SigninPage(object):
         self.activation_code_field = s("#activationcode")
         self.activation_code_signin_button = s("#signin")
 
+        self.oops_popup = s("#activatewindow")
+        self.oops_popup_retry_button = s("#retry")
+
     def tap_on_sign_in(self):
         # self.welcome_text.should(have.text('Welcome to Flixon TV...'))
         self.sign_in_btn.click()

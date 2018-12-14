@@ -24,10 +24,45 @@ def test_oops_1_hour_popup_verification_after_login():
     with allure.step("Click on the Signin button on the popup"):
         SigninPage().sign_in_btn.click()
     with allure.step("Fill in the Code field with a valid Activation Code"):
-        SigninPage().activation_code_field.set_value(activationCode2)
+        SigninPage().activation_code_field.set_value(activationCode4)
     with allure.step("Click on the Sign In button on the popup"):
         SigninPage().activation_code_signin_button.click()
-        time.sleep(15)
+        try:
+            if SigninPage().oops_popup.is_displayed() is True:
+                print("!!!!!")
+                print(SigninPage().oops_popup.is_displayed())
+                print(SigninPage().oops_popup.should(be.visible))
+                SigninPage().oops_popup_retry_button.click()
+                time.sleep(1)
+                SigninPage().activation_code_field.set_value(activationCode1)
+                SigninPage().activation_code_signin_button.click()
+                time.sleep(1)
+                print("!!!!!")
+                print(SigninPage().oops_popup.should(be.visible))
+                print(SigninPage().oops_popup.is_displayed())
+                try:
+                    if SigninPage().oops_popup.is_displayed() is True:
+                        print("!!!!!")
+                        SigninPage().oops_popup_retry_button.click()
+                        time.sleep(1)
+                        SigninPage().activation_code_field.set_value(activationCode1)
+                        SigninPage().activation_code_signin_button.click()
+                        time.sleep(1)
+                        try:
+                            if SigninPage().oops_popup.is_displayed() is True:
+                                print("!!!!!")
+                                SigninPage().oops_popup_retry_button.click()
+                                time.sleep(1)
+                                SigninPage().activation_code_field.set_value(activationCode2)
+                                SigninPage().activation_code_signin_button.click()
+                                time.sleep(1)
+                        except:
+                            pass
+                except:
+                    pass
+        except:
+            pass
+        time.sleep(10)
     with allure.step("Start playback of the first channel on the Channels list"):
         OneHourViewFlow().first_channel_in_the_scroller.click()
         time.sleep(2)

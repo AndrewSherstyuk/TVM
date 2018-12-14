@@ -38,7 +38,7 @@ def test_five_minutes_signup_popup_verification():
         time.sleep(1)
         OneHourViewFlow().five_min_popup_close_button.click()
     with allure.step("Wait for the Registration modal popup"):
-        time.sleep(180)
+        time.sleep(270)
     with allure.step("Click on the Cross button to close the Registration Modal"):
         OneHourViewFlow().registration_modal.is_displayed()
         OneHourViewFlow().five_min_popup_close_button.should_not(be.visible)
