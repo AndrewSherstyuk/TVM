@@ -42,7 +42,7 @@ def test_navigation_to_mytv():
         SigninPage().login_as_user()
     with allure.step("Navigate to MyTV"):
         PageHeader().my_tv.click()
-    with allure.step("Check that page is openned"):
+    with allure.step("Check that page is opened"):
         MyTVPage().row_schedule.should(be.visible)
     with allure.step("Check active button + css styles"):
         assert PageHeader().guide.get_attribute("class") != "tab-toggle active"
