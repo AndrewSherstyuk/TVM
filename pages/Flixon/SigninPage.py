@@ -69,7 +69,7 @@ class SigninPage(object):
         time.sleep(2)
         OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
         time.sleep(2)
-        # GuidePage().day_selector.should(be.visible)
+        GuidePage().day_selector.should(be.visible)
 
 
 
