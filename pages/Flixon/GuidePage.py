@@ -11,7 +11,15 @@ class GuidePage(object):
 
         self.first_ongoing_program_in_epg = s(by.xpath("(//DIV[@class='epg-item current'])[1]"))
 
+        self.first_scheduled_program_in_epg = s(by.xpath("(//DIV[@class='epg-item schedule'])[1]"))
+
+        self.first_scheduled_program_in_epg_arrow_icon = s(by.xpath("(//DIV[@class='epg-item schedule::before'])[1]"))
+
+        self.first_last_available_program_in_epg = s(by.xpath("(//DIV[@class='epg-item current'])[1]/preceding-sibling::DIV"))
+
         self.first_ongoing_program_in_epg_custom_banner_arrow = s(by.xpath("(//SPAN[@class='icon icon-play'])[88]"))
+
+        self.first_scheduled_program_in_epg_preview_record_button = s(by.xpath("//SPAN[@class='icon icon-record']"))
 
 
 
