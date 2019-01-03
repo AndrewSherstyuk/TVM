@@ -8,6 +8,8 @@ from pages.Mucho.OneHourViewFlow import *
 
 class SigninPage(object):
 
+
+
     correct_email = "0000@0000.com"
     correct_password = "010101"
 
@@ -74,6 +76,47 @@ class SigninPage(object):
             pass
         # GuidePage().day_selector.should(be.visible)
 
+    activationCode1 = "DDKE38"  # "brandnew121212@gmail.com"
+    activationCode2 = "8C5B9H"  # "brandnew1212@gmail.com"
+    activationCode3 = "C0H18K"  # "brandold1211@gmail.com"
+    activationCode4 = "39L0J6"  # "brandnew121213@gmail.com"
+    activationCode5 = "89H01A"  # "joel1976@mail.ru"
+
+    activation_codes_list = [activationCode5, activationCode4, activationCode3, activationCode2, activationCode1]
+
+
+    def login_as_user_tvmucho(self):
+        browser.open_url(BASE_URL_2 + "watch-tv-free/activate/?showerror=true")
+        SigninPage().sign_in_btn.click()
+        SigninPage().activation_code_field.set_value(self.activationCode4)
+        SigninPage().activation_code_signin_button.click()
+        for activation_code in self.activation_codes_list:
+            try:
+                if SigninPage().oops_popup.is_displayed() is True:
+                    try:
+                        s("#screen_limit > a").click()
+                    except:
+                        pass
+                    browser.open_url(BASE_URL_2 + "watch-tv-free/activate/?showerror=true")
+
+                    SigninPage().sign_in_btn.click()
+                    time.sleep(1)
+                    SigninPage().activation_code_field.set_value(activation_code)
+                    print(activation_code)
+                    SigninPage().activation_code_signin_button.click()
+                    time.sleep(1)
+                else:
+                    break
+            except:
+                pass
+            time.sleep(10)
+            try:
+                OneHourViewFlow().personal_video_recording_confirmation_button.click()
+                time.sleep(2)
+                OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
+                time.sleep(2)
+            except:
+                pass
 
 
 

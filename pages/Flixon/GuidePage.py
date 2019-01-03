@@ -9,6 +9,8 @@ class GuidePage(object):
 
         self.first_channel_in_the_list = s(by.xpath('//*[@id="channel-selector"]/li[1]'))
 
+        self.first_channel_in_the_scroller = s(by.xpath("(//DIV[@class='content'])[2]"))
+
         self.first_ongoing_program_in_epg = s(by.xpath("(//DIV[@class='epg-item current'])[1]"))
 
         self.first_scheduled_program_in_epg = s(by.xpath("(//DIV[@class='epg-item schedule'])[1]"))
