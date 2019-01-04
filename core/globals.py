@@ -1,7 +1,7 @@
 from selene.api import *
 import time
 
-BASE_URL = "https://tvmucho.com/"
+BASE_URL = "https://test.tvmucho.com/"
 BASE_URL_2 = "https://tvmucho.com/"
 # BASE_URL = "http://flixon.tvmucho.com"
 

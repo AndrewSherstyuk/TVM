@@ -87,36 +87,38 @@ class SigninPage(object):
 
     def login_as_user_tvmucho(self):
         browser.open_url(BASE_URL_2 + "watch-tv-free/activate/?showerror=true")
-        SigninPage().sign_in_btn.click()
-        SigninPage().activation_code_field.set_value(self.activationCode4)
-        SigninPage().activation_code_signin_button.click()
-        for activation_code in self.activation_codes_list:
-            try:
-                if SigninPage().oops_popup.is_displayed() is True:
-                    try:
-                        s("#screen_limit > a").click()
-                    except:
-                        pass
-                    browser.open_url(BASE_URL_2 + "watch-tv-free/activate/?showerror=true")
 
-                    SigninPage().sign_in_btn.click()
-                    time.sleep(1)
-                    SigninPage().activation_code_field.set_value(activation_code)
-                    print(activation_code)
-                    SigninPage().activation_code_signin_button.click()
-                    time.sleep(1)
-                else:
-                    break
-            except:
-                pass
-            time.sleep(10)
-            try:
-                OneHourViewFlow().personal_video_recording_confirmation_button.click()
-                time.sleep(2)
-                OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
-                time.sleep(2)
-            except:
-                pass
+        print("__________________________")
+        print(SigninPage().oops_popup.is_displayed())
+        print("__________________________")
+        #for activation_code in self.activation_codes_list:
+        SigninPage().sign_in_btn.click()
+        SigninPage().activation_code_field.set_value("5L8JJL")
+        #print(activation_code)
+        SigninPage().activation_code_signin_button.click()
+        time.sleep(2)
+        try:
+            s(by.partial_link_text("Or force all my devices to stop playing.")).click()
+        except:
+            pass
+            # time.sleep(10)
+            # if s(by.xpath("(//DIV[@class='content'])[1]")).is:
+            #     break
+            # if s(by.partial_link_text("Or force all my devices to stop playing.")).is_displayed() is True:
+            #     s(by.partial_link_text("Or force all my devices to stop playing.")).click()
+            #     time.sleep(10)
+            #
+            #
+            #
+            #
+            # time.sleep(10)
+            # try:
+            #     OneHourViewFlow().personal_video_recording_confirmation_button.click()
+            #     time.sleep(2)
+            #     OneHourViewFlow().personal_video_recording_hooray_ok_button.click()
+            #     time.sleep(2)
+            # except:
+            #     pass
 
 
 
