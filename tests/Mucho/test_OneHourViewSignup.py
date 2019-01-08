@@ -25,9 +25,9 @@ def test_oops_1_hour_popup_verification_after_signup():
     with allure.step("Click Start Watching Online button on the Congratulations popup"):
         OneHourViewFlow().congratulations_start_watching_online_button.click()
         time.sleep(3)
-    with allure.step("Verify that the playback is in progress"):
-        OneHourViewFlow().player_playstop_button.should(be.visible)
-        PlayerPage().volume_button.should(be.clickable).click()
+    # with allure.step("Verify that the playback is in progress"):
+    #     OneHourViewFlow().player_playstop_button.should(be.visible)
+    #     PlayerPage().volume_button.should(be.clickable).click()
     with allure.step("Wait for the Registration Modal popup"):
         counter = 0
         result = False
