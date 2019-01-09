@@ -35,6 +35,7 @@ class PlayerPage(object):
         self.help_form = s("#help-form")
         self.help_form_input_field = s('#message')
         self.help_form_close_button = s(by.xpath("(//BUTTON[@data-remodal-action='cancel'][text()='Close'][text()='Close'])[2]"))
+        self.help_form_close_button_on_whats_happening = s(by.xpath("//BUTTON[@data-remodal-action='cancel'][text()='Close']"))
         self.help_form_submitreport_button = s(by.xpath("//BUTTON[@data-remodal-action='confirm'][text()='Submit report']"))
         self.help_form_report_received_notification = s("#debug-data-modal")
         self.help_form_report_received_notification_heading = s(by.xpath("//H1[@class='heading-done'][text()='Your report has been received']"))

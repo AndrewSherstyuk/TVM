@@ -48,15 +48,18 @@ def test_player_playstop_button_verification():
         time.sleep(1)
     with allure.step("Tap on the first channel in the list"):
         browser.open_url(BASE_URL_2 + "watch-tv/#live/bbc-one-hd")
-        with allure.step("Verify that the Playstop button is still in the stop state"):
-            time.sleep(1)
-        with allure.step("Click on the Playstop button"):
-            PlayerPage().playstop_stop_button.click()
-            time.sleep(1)
-        with allure.step("Verify that the Playstop button is in the Play state"):
-            PlayerPage().playstop_play_button.should(be.visible)
-            time.sleep(1)
-            browser.quit_driver()
+        time.sleep(1)
+    with allure.step("Verify that the Playstop button is still in the stop state"):
+        PlayerPage().playstop_stop_button.should(be.visible)
+        time.sleep(1)
+    with allure.step("Click on the Playstop button"):
+
+        PlayerPage().playstop_stop_button.click()
+        time.sleep(1)
+    with allure.step("Verify that the Playstop button is in the Play state"):
+        PlayerPage().playstop_play_button.should(be.visible)
+        time.sleep(1)
+        browser.quit_driver()
 
 
 
@@ -73,6 +76,8 @@ def test_player_help_something_wrong_option_verification_1():
         browser.open_url(BASE_URL_2 + "watch-tv/#live/bbc-one-hd")
         time.sleep(1)
     with allure.step("Click on the Help button"):
+        PlayerPage().help_button.should(be.visible)
+        PlayerPage().help_button.should(be.clickable)
         PlayerPage().help_button.click()
         time.sleep(1)
     with allure.step("Verify that the Help panel gets shown"):
@@ -82,15 +87,15 @@ def test_player_help_something_wrong_option_verification_1():
         PlayerPage().somethingwrong_option.click()
         time.sleep(1)
     with allure.step("Verify that the Help form gets opened"):
-        PlayerPage().help_form.should(be.visible)
+        PlayerPage().help_form_close_button_on_whats_happening.should(be.visible)
         time.sleep(1)
     with allure.step("Click/tap on the Close button of the Help form"):
-        PlayerPage().help_form_close_button.click()
+        PlayerPage().help_form_close_button_on_whats_happening.click()
     with allure.step("Verify that the Help form and the Player controls get hidden"):
         PlayerPage().help_button.should(be.visible)
         browser.quit_driver()
 #
-#
+
 # @allure.title("Video Player: Help menu > Help form > Confirm button selected with empty Help form verification")
 # @allure.description("""The test opens video player from the Guide page, taps
 # on the Help button, selects Something Wrong... option, leaves the Help form empty and confirms, then verifies the tvm-popup""")
@@ -238,8 +243,8 @@ def test_player_help_something_wrong_option_verification_1():
 #         SigninPage().login_as_user()
 #         browser.quit_driver()
 #         # Need to implement a step to drag and drop the Volume slider, TBD
-
-
+#
+#
 # @allure.title("Video Player: Full Screen button verification")
 # @allure.description("""The test opens video player from the Guide page, taps
 # on the Full Screen button, then taps on it again and verifies that the playback is still on""")
