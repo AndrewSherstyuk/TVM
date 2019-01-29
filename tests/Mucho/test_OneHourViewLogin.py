@@ -10,9 +10,9 @@ import time
 
 activationCode1 = "DDKE38" # "brandnew121212@gmail.com"
 activationCode2 = "8C5B9H" # "brandnew1212@gmail.com"
-activationCode3 = "C0H18K" # "brandold1211@gmail.com"
-activationCode4 = "39L0J6" # "brandnew121213@gmail.com"
-activationCode5 = "89H01A" # "joel1976@mail.ru"
+activationCode3 = "9AK7C6" # "brandold1211@gmail.com"
+activationCode4 = "KELB0H" # "brandnew121213@gmail.com"
+activationCode5 = "028974" # "joel1976@mail.ru"
 
 activation_codes_list = [activationCode1, activationCode2, activationCode3, activationCode4, activationCode5]
 
