@@ -4,11 +4,11 @@ from pages.Flixon.SigninPage import *
 
 BASE_URL = "https://tvmucho.com/"
 
-activationCode1 = "DDKE38"  # "brandnew121212@gmail.com"
-activationCode2 = "8C5B9H"  # "brandnew1212@gmail.com"
-activationCode3 = "53H4H1"  # "brandold1211@gmail.com"
-activationCode4 = "KELB0H"  # "brandnew121213@gmail.com"
-activationCode5 = "028974"  # "joel1976@mail.ru"
+activationCode1 = "9E1L2C"  # "brandnew121212@gmail.com"   http://tvmucho.com/player/?activationcode=9E1L2C
+activationCode2 = "AE9C11"  # "brandnew1212@gmail.com"   http://tvmucho.com/player/?activationcode=AE9C11
+activationCode3 = "BA5419"  # "brandold1211@gmail.com"   http://tvmucho.com/player/?activationcode=BA5419
+activationCode4 = "5H7HKB"  # "brandnew121213@gmail.com"   http://tvmucho.com/player/?activationcode=5H7HKB
+activationCode5 = "8KGJ7D"  # "joel1976@mail.ru"   http://tvmucho.com/player/?activationcode=8KGJ7D
 
 activation_codes_list = [activationCode1, activationCode2, activationCode3, activationCode4, activationCode5]
 
@@ -35,53 +35,39 @@ def test_five_minutes_trial_playback():
 
 
 @allure.title("60 Min Trial: General Verifiecation")
-@allure.description("""The test logs in as the free registered user and verifies the !-hour Trial""")
+@allure.description("""The test logs in as the free registered user and verifies the 1-hour Trial functionality""")
 def test_oops_1_hour_popup_verification_after_login():
-    with allure.step("Open the Signin page of TVMucho"):
-        browser.open_url(BASE_URL_2 + "watch-tv-free/activate/?showerror=true")
-    with allure.step("Click on the Signin button on the popup"):
-        SigninPage().sign_in_btn.click()
-    with allure.step("Fill in the Code field with a valid Activation Code"):
-        SigninPage().activation_code_field.set_value(activationCode1)
-    with allure.step("Click on the Sign In button on the popup"):
-        SigninPage().activation_code_signin_button.click()
-        for activation_code in activation_codes_list:
-            try:
-                if SigninPage().oops_popup.is_displayed() is True:
-                    browser.open_url(BASE_URL_2 + "watch-tv-free/activate/?showerror=true")
-                    SigninPage().sign_in_btn.click()
-                    time.sleep(1)
-                    SigninPage().activation_code_field.set_value(activation_code)
-                    print(activation_code)
-                    SigninPage().activation_code_signin_button.click()
-                    time.sleep(1)
-                else:
-                    break
-            except:
-                pass
-        time.sleep(110)
-    with allure.step("Verify that the circle is displayed and the text is 5 Min"):
-        s("#time_probressbar").should(have.exact_text("60 min"))
-    with allure.step("Call the Share popup"):
+    with allure.step("Open My TV page with direct link"):
+        browser.open_url(BASE_URL + "player/?activationcode=" + activationCode2)
+        time.sleep(1)
+        try:
+            oopsTooManyAccountsPopup = s(by.partial_link_text("Or force all my devices to stop playing."))
+            if oopsTooManyAccountsPopup.is_displayed() is True:
+                oopsTooManyAccountsPopup.click()
+        except:
+            pass
+    with allure.step("Launch the ongoing video playback"):
+        browser.open_url(BASE_URL + "watch-tv-free/#live/bbc-one-hd")
+        time.sleep(1)
+    with allure.step("Verify that the circle is displayed and the text is 60 Min"):
+        s("#time_probressbar").should(have.exact_text("59 min"))
+    with allure.step("Wait for the player control to fade away"):
+        time.sleep(7)
+    with allure.step("Verify that the time circle disappears along with player controls"):
+        s("#time_probressbar").should_not(be.visible)
+    with allure.step("Make the player controls visible again"):
+        s("#player").click()
+    with allure.step("Verify that the time circle appears as soon as the player controls get visible again"):
+        s("#time_probressbar").should(be.visible)
+    with allure.step("Call the Share popup ensure it has appeared"):
         browser.execute_script("$('#share-modal').remodal().open()")
-    with allure.step("Verify the Share popup"):
-        shareModal = s("#share-modal")
-        shareModal.should(be.visible)
+        s("#share-modal").should(be.visible)
+    with allure.step("Call the Fire event and ensure it has appeared"):
+        browser.execute_script("fireEvent('apiError', 'free_time_over')")
+        s("#content > div.main-content > div.form.first").should(be.visible)
 
 
 
-    # with allure.step("Start playback of the first channel on the Channels list"):
-    #     OneHourViewFlow().first_channel_in_the_scroller.click()
-    #     time.sleep(2)
-    # with allure.step("Verify that the playback is up and running"):
-    #     OneHourViewFlow().player_playstop_button.should(be.visible)
-    # with allure.step("Wait for 57.5 minutes"):
-    #     time.sleep(3450)
-    # with allure.step("Verify that the playback is up and running"):
-    #     PlayerPage().player_window.click()
-    # with allure.step("Wait for 5 minutes so the playback is expired"):
-    #     time.sleep(300)
-    # with allure.step("Verify that the Registration popup gets displayed"):
-    #     OneHourViewFlow().oops_popup.should(be.visible)
-    #     browser.quit_driver()
+
+
 
